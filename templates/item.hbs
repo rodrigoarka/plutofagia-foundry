@@ -1,0 +1,23 @@
+<section class="pluto-sheet pluto-item-sheet">
+  <header class="pluto-masthead"><img class="pluto-logo" src="systems/plutofagia/assets/logo.png" alt="Plutofagia" /><small>CATÁLOGO DA OFICINA COLETIVA</small></header>
+  <div class="pluto-ribbon"><h3>{{item.name}}</h3><span>{{kind}}</span></div>
+  <label>Nome do registro <input data-field="name" value="{{item.name}}" /></label>
+  <label>Descrição <textarea data-field="system.description">{{sys.description}}</textarea></label>
+  {{#if isWeapon}}
+  <div class="pluto-split"><label>Dano (D10 explosivo) <input data-field="system.damage" value="{{sys.damage}}" /></label><label>Alcance (quadrados) <input type="number" min="1" data-field="system.range" value="{{sys.range}}" /></label></div>
+  <label>Propriedades <input data-field="system.properties" value="{{sys.properties}}" /></label>
+  <div class="pluto-split"><label>Atributo <select data-field="system.attribute"><option value="">Padrão por alcance</option>{{#each attrOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label><label>Perícia <select data-field="system.skill">{{#each skillOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label></div>
+  <label>Espaços de carga <input type="number" min="0" data-field="system.slots" value="{{sys.slots}}" /></label>
+  {{else if isArmor}}
+  <label>Região protegida <select data-field="system.region">{{#each regions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+  <label>Absorção <input type="number" min="0" max="9" data-field="system.armor" value="{{sys.armor}}" /></label>
+  <label><input type="checkbox" data-field="system.equipped" {{#if sys.equipped}}checked{{/if}} /> Vestido / equipado</label>
+  {{else if isTechnique}}
+  <div class="pluto-split"><label>Ofício <input data-field="system.officio" value="{{sys.officio}}" /></label><label>Estágio <input data-field="system.level" value="{{sys.level}}" /></label></div>
+  <div class="pluto-split"><label>Custo de ação <input type="number" min="0" max="3" data-field="system.cost" value="{{sys.cost}}" /></label><label>Dificuldade <input type="number" min="1" max="10" data-field="system.difficulty" value="{{sys.difficulty}}" /></label></div>
+  <label>Efeito <textarea data-field="system.effect">{{sys.effect}}</textarea></label>
+  {{else}}
+  <div class="pluto-split"><label>Quantidade <input type="number" min="0" data-field="system.quantity" value="{{sys.quantity}}" /></label><label>Espaços <input type="number" min="0" data-field="system.slots" value="{{sys.slots}}" /></label></div>
+  {{/if}}
+  <p class="pluto-footnote">Registro interno do Sindicato. Dados de equipamento são abstrações exclusivas do jogo.</p>
+</section>

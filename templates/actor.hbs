@@ -1,0 +1,95 @@
+<section class="pluto-sheet" aria-label="Ficha de {{actor.name}}">
+  <header class="pluto-masthead">
+    <img class="pluto-logo" src="systems/plutofagia/assets/logo.png" alt="Plutofagia" />
+    <div class="pluto-masthead-right"><small>ARQUIVO POPULAR / REGISTRO DE OPERÁRIO</small><span>O LIVRO DO SINDICATO</span></div>
+  </header>
+  <div class="pluto-person-bar">
+    <img class="pluto-portrait" src="{{actor.img}}" alt="Retrato" />
+    <div class="pluto-person-data">
+      <label>Nome de rua <input data-field="name" value="{{actor.name}}" /></label>
+      <div class="pluto-split">
+        <label>Espécie livre <input data-field="system.species" value="{{sys.species}}" /></label>
+        <label>Ofício <select data-field="system.office"><option value="">— escolha seu ofício —</option>{{#each oficios}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+      </div>
+      <div class="pluto-split">
+        <label>Tamanho <select data-field="system.size">{{#each sizes}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+        <label>Anatomia <select data-field="system.anatomy">{{#each anatomyOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+        <label>Facção <select data-field="system.faction">{{#each factions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+      </div>
+    </div>
+  </div>
+  <nav class="pluto-tabs">
+    {{#each tabs}}<button type="button" data-page="{{id}}" class="{{#if @first}}active{{/if}}">{{label}}</button>{{/each}}
+  </nav>
+  <div data-tab-panel="pessoa" class="pluto-content">
+    <div class="pluto-ribbon"><h3>01 / ATRIBUTOS</h3><span class="{{#if aRemaining}}pluto-warning{{/if}}">{{aPoints}}/12 pontos · {{aRemaining}} restantes na criação</span></div>
+    <div class="pluto-attributes">
+      {{#each attrs}}
+        <div class="pluto-attr-row"><b>{{label}}</b><div class="pluto-pips">{{#each pips}}<button type="button" class="pluto-pip {{#if on}}filled{{/if}}" data-action="pip" data-attr="{{../key}}" data-value="{{n}}" aria-label="{{../label}} {{n}}">{{n}}</button>{{/each}}</div><button type="button" class="pluto-icon-btn" data-action="roll" data-attr="{{key}}" data-diff="7" title="Rolar D10">🎲</button></div>
+      {{/each}}
+    </div>
+    <div class="pluto-ribbon"><h3>02 / PERÍCIAS TREINADAS</h3><span>{{trained}}/3 iniciais</span></div>
+    <div class="pluto-skills">
+      {{#each skills}}
+      <label class="pluto-skill"><input type="checkbox" data-field="system.skills.{{key}}" {{#if trained}}checked{{/if}} /> {{label}} <button type="button" data-action="roll" data-attr="tecnica" data-skill="{{key}}" title="Teste rápido (atributo padrão: Técnica)">🎲</button></label>
+      {{/each}}
+    </div>
+    <div class="pluto-ribbon"><h3>03 / TESTE LIVRE</h3><span>Maior D10 · igualar = sucesso</span></div>
+    <div class="pluto-quick-test">
+      <label>Atributo <select data-roll-attribute><option value="brutalidade">Brutalidade</option><option value="agilidade">Agilidade</option><option value="resistencia">Resistência</option><option value="tecnica" selected>Técnica</option><option value="labia">Lábia</option><option value="articulacao">Articulação</option></select></label>
+      <label>Perícia <select data-roll-skill><option value="">Sem perícia</option><option value="pontaria">Pontaria</option><option value="explosivos">Explosivos</option><option value="mecanica">Mecânica</option><option value="medicina">Medicina</option><option value="furtividade">Furtividade</option><option value="pilotagem">Pilotagem</option><option value="intimidacao">Intimidação</option><option value="negociacao">Negociação</option><option value="mobilizacao">Mobilização</option><option value="sobrevivencia">Sobrevivência</option></select></label>
+      <label>Dif. <input type="number" min="1" max="10" value="7" data-roll-diff /></label>
+      <label>Mod. D10 <input type="number" min="-5" max="5" value="0" data-roll-bonus /></label>
+      <button type="button" class="pluto-primary" data-action="roll-selected">ROLAR</button>
+    </div>
+    <div class="pluto-ribbon"><h3>04 / O QUE TE MOVE</h3></div>
+    <div class="pluto-narrative"><label>Pelo que luto? <textarea data-field="system.purpose">{{sys.purpose}}</textarea></label><label>Minha contradição <textarea data-field="system.contradiction">{{sys.contradiction}}</textarea></label></div>
+  </div>
+  <div data-tab-panel="combate" class="pluto-content" hidden>
+    <div class="pluto-combat-stats">
+      <div><small>DEFESA BASE</small><strong>{{sys.defense.value}}</strong><input type="number" min="1" max="10" data-field="system.defense.base" value="{{sys.defense.base}}" title="Defesa base" /></div>
+      <div><small>MOVER / 1 AÇÃO</small><strong>{{move}} <small>quad.</small></strong></div>
+      <div><small>AÇÕES GASTAS</small><strong>{{status.used}} / {{status.max}}</strong></div>
+      <div><small>ATAQUE FEITO</small><strong>{{#if status.attacked}}SIM{{else}}NÃO{{/if}}</strong></div>
+      <div><small>REAÇÃO USADA</small><strong>{{#if status.reacted}}SIM{{else}}NÃO{{/if}}</strong></div>
+    </div>
+    <div class="pluto-buttons"><button type="button" data-action="spend" data-cost="1">Gastar 1 ação</button><button type="button" data-action="guard">Guardar posição (−4 dano)</button><button type="button" data-action="reaction" data-attr="brutalidade">Interceptar / reação</button><button type="button" data-action="rotate" data-degrees="90">Virar ↻ 90°</button><button type="button" data-action="area-template">Marcar área 1 quad.</button><button type="button" data-action="take-hostage">Conter / tomar refém</button><button type="button" data-action="escape-hostage">Escapar</button><button type="button" data-action="bonus-action">3ª ação por carta</button>{{#if gm}}<button type="button" data-action="prepare-combat">Iniciativa por facções</button><button type="button" data-action="actions-reset">Limpar contador</button>{{/if}}</div>
+    <div class="pluto-ribbon"><h3>05 / REGIÕES E PROTEÇÕES</h3><span>Resistência altera os máximos</span></div>
+    <div class="pluto-regions"><div class="pluto-region-title"><span>Região</span><span>PV atuais</span><span>Máximo</span><span>Proteção</span></div>
+      {{#each regions}}<div class="pluto-region-row"><b>{{label}}</b><span>{{#if missing}}—{{else}}<input type="number" min="0" max="999" data-field="system.regions.{{key}}.value" value="{{value}}" />{{/if}}</span><span>{{#if missing}}—{{else}}{{max}}{{/if}}</span><span>{{#if missing}}—{{else}}<input type="number" min="0" max="9" data-field="system.regions.{{key}}.armor" value="{{armor}}" />{{/if}}</span></div>{{/each}}
+    </div>
+    <div class="pluto-ribbon"><h3>06 / ATAQUES</h3><span>1 ataque/turno · crítico somente no dano</span></div>
+    <div class="pluto-quick-test">
+      <label>Região <select data-attack-region><option value="torso">Tronco (normal)</option><option value="cabeca">Cabeça (+2 DEF; 2 ações)</option><option value="bracoE">Braço E (+1 DEF; 2 ações)</option><option value="bracoD">Braço D (+1 DEF; 2 ações)</option><option value="pernaE">Perna E (+1 DEF; 2 ações)</option><option value="pernaD">Perna D (+1 DEF; 2 ações)</option></select></label>
+      <label>Cobertura <select data-cover><option value="0">Nenhuma</option><option value="25">25% (+2 DEF)</option><option value="50">50% (+3 DEF)</option><option value="75">Refém 75% (+4 DEF)</option><option value="100">Total (não ataca)</option></select></label>
+      <label>Mod. D10 <input type="number" min="-5" max="5" value="0" data-attack-bonus /></label>
+    </div>
+    <div class="pluto-list"><article class="pluto-item-row"><b>Ataque desarmado</b><span>1D10 − 3 · adjacente</span><button type="button" data-action="weapon" data-id="unarmed">Atacar</button></article>{{#each weapons}}<article class="pluto-item-row"><b>{{name}}</b><span>{{damage}} · alcance {{range}} · {{properties}}</span><button type="button" data-action="weapon" data-id="{{id}}">Atacar</button>{{#if flags.needsReload}}<button type="button" data-action="reload" data-id="{{id}}">Recarga</button>{{/if}}<button type="button" data-action="item-sheet" data-id="{{id}}">Editar</button></article>{{/each}}</div>
+    <div class="pluto-ribbon"><h3>07 / SOCORROS E CONDIÇÕES</h3></div>
+    <div class="pluto-buttons"><span>Kit médico: <input type="number" min="0" max="3" data-field="system.resources.kit.value" value="{{sys.resources.kit.value}}" /></span><label>Região <select data-heal-region><option value="torso">Tronco</option><option value="cabeca">Cabeça</option><option value="bracoE">Braço E</option><option value="bracoD">Braço D</option><option value="pernaE">Perna E</option><option value="pernaD">Perna D</option></select></label><button type="button" data-action="heal">Atender alvo</button></div>
+    <div class="pluto-conditions"><label><input type="checkbox" data-field="system.conditions.suprimido" {{#if sys.conditions.suprimido}}checked{{/if}} /> Suprimido</label><label><input type="checkbox" data-field="system.conditions.contido" {{#if sys.conditions.contido}}checked{{/if}} /> Contido</label><label><input type="checkbox" data-field="system.conditions.refem" {{#if sys.conditions.refem}}checked{{/if}} /> Refém</label><label><input type="checkbox" data-field="system.conditions.abatido" {{#if sys.conditions.abatido}}checked{{/if}} /> Fora de combate</label></div>
+    <small class="pluto-footnote">Cobertura e disparos indiretos são julgados em mesa. A movimentação do Foundry usa a régua nativa; a ficha apenas alerta sobre limites de turno e reação.</small>
+  </div>
+  <div data-tab-panel="bagagem" class="pluto-content" hidden>
+    <div class="pluto-ribbon"><h3>08 / INVENTÁRIO DO OPERÁRIO</h3><button type="button" data-action="catalog">+ Catálogo de itens</button></div>
+    <p class="pluto-footnote">8 espaços básicos + 4 com mochila, até 2 armas prontas. Equipamento vestido não ocupa espaço. Arraste itens do catálogo mundial ou use “+ Catálogo”.</p>
+    {{#each protections}}<article class="pluto-item-row"><b>{{name}}</b><span>{{region}} · proteção {{armor}}</span><button type="button" data-action="item-sheet" data-id="{{id}}">Editar</button><button type="button" data-action="item-remove" data-id="{{id}}">×</button></article>{{/each}}
+    {{#each consumables}}<article class="pluto-item-row"><b>{{name}}</b><span>Quantidade {{quantity}} · {{description}}</span><button type="button" data-action="item-sheet" data-id="{{id}}">Editar</button><button type="button" data-action="item-remove" data-id="{{id}}">×</button></article>{{/each}}
+    {{#each equipment}}<article class="pluto-item-row"><b>{{name}}</b><span>{{slots}} espaço(s) · {{description}}</span><button type="button" data-action="item-sheet" data-id="{{id}}">Editar</button><button type="button" data-action="item-remove" data-id="{{id}}">×</button></article>{{/each}}
+    <div class="pluto-buttons"><button type="button" data-action="item-create" data-kind="arma">Nova arma fictícia</button><button type="button" data-action="item-create" data-kind="protecao">Nova proteção</button><button type="button" data-action="item-create" data-kind="consumivel">Novo consumível</button><button type="button" data-action="item-create" data-kind="equipamento">Novo equipamento</button></div>
+    <div class="pluto-ribbon"><h3>09 / ARMAS NO INVENTÁRIO</h3></div>
+    {{#each weapons}}<article class="pluto-item-row"><b>{{name}}</b><span>{{damage}} · {{slots}} espaço(s) · {{properties}}</span><button type="button" data-action="item-sheet" data-id="{{id}}">Editar</button><button type="button" data-action="item-remove" data-id="{{id}}">×</button></article>{{/each}}
+  </div>
+  <div data-tab-panel="revolucao" class="pluto-content" hidden>
+    <div class="pluto-ribbon"><h3>10 / RECURSOS DA RESISTÊNCIA</h3></div>
+    <div class="pluto-quick-test"><label>XP <input type="number" min="0" data-field="system.xp" value="{{sys.xp}}" /></label><label>XP gastos <input type="number" min="0" data-field="system.xpSpent" value="{{sys.xpSpent}}" /></label><label>Pulso (PR) <input type="number" min="0" max="3" data-field="system.resources.pr.value" value="{{sys.resources.pr.value}}" /></label><label>Apoio (AP) <input type="number" min="0" data-field="system.resources.ap.value" value="{{sys.resources.ap.value}}" /></label></div>
+    <div class="pluto-ribbon"><h3>11 / TÉCNICAS DO OFÍCIO</h3><button type="button" data-action="item-create" data-kind="tecnica">+ Registrar técnica</button></div>
+    {{#each techniques}}<article class="pluto-item-row"><b>{{name}}</b><span>{{description}}</span><button type="button" data-action="skill-use" data-id="{{id}}">Usar</button><button type="button" data-action="item-sheet" data-id="{{id}}">Editar</button><button type="button" data-action="item-remove" data-id="{{id}}">×</button></article>{{/each}}
+    <div class="pluto-ribbon"><h3>12 / A COMUNIDADE NÃO É CENÁRIO</h3></div>
+    <label>O que devo ao bando? <textarea data-field="system.collective">{{sys.collective}}</textarea></label>
+    <label>Registros da operação <textarea data-field="system.notes">{{sys.notes}}</textarea></label>
+    <label>Ferimentos e tratamento por cena <textarea data-field="system.injuryNotes">{{sys.injuryNotes}}</textarea></label>
+    <label>Observações de turno <textarea data-field="system.turnNotes">{{sys.turnNotes}}</textarea></label>
+  </div>
+  <footer class="pluto-end-note"><span>A REVOLUÇÃO NÃO TEM PLANO DE SAÚDE.</span><span>MAS TEM GENTE QUE CUIDA DE GENTE.</span></footer>
+</section>

@@ -1,0 +1,1247 @@
+[
+  {
+    "name": "Tralha improvisada",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Objeto fantástico improvisado, perde utilidade após um acerto.",
+      "category": "fantasia",
+      "damage": "1d10",
+      "range": 1,
+      "slots": 1,
+      "properties": "Frágil",
+      "attribute": "brutalidade",
+      "skill": "",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Bastão encantado",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Bastão mágico; com dano final de pelo menos 8, desloca um quadrado.",
+      "category": "fantasia",
+      "damage": "1d10+1",
+      "range": 1,
+      "slots": 1,
+      "properties": "Impacto",
+      "attribute": "brutalidade",
+      "skill": "",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Ferramenta fantástica de impacto",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Ferramenta ficcional pesada de oficina.",
+      "category": "fantasia",
+      "damage": "1d10+3",
+      "range": 1,
+      "slots": 2,
+      "properties": "Duas mãos",
+      "attribute": "brutalidade",
+      "skill": "",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Projetor arcano compacto",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Dispositivo fictício para cenas de ação.",
+      "category": "fantasia",
+      "damage": "1d10+2",
+      "range": 8,
+      "slots": 1,
+      "properties": "Leve",
+      "attribute": "tecnica",
+      "skill": "pontaria",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Orbe de rajada",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Orbe da oficina clandestina.",
+      "category": "fantasia",
+      "damage": "1d10+3",
+      "range": 7,
+      "slots": 1,
+      "properties": "Firme",
+      "attribute": "tecnica",
+      "skill": "pontaria",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Emissor fantástico de área",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Área central; adjacentes usam dano secundário.",
+      "category": "fantasia",
+      "damage": "2d10",
+      "range": 6,
+      "slots": 2,
+      "properties": "Área, Recarga, Espalhamento",
+      "attribute": "tecnica",
+      "skill": "pontaria",
+      "splash": "1d10"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Lança-raios cerimonial",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Conduz feixes mágicos inexistentes fora do jogo.",
+      "category": "fantasia",
+      "damage": "1d10+4",
+      "range": 16,
+      "slots": 2,
+      "properties": "Duas mãos",
+      "attribute": "tecnica",
+      "skill": "pontaria",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Instrumento mágico de longo alcance",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Instrumento fantástico; Mirar interage com cobertura de 25%.",
+      "category": "fantasia",
+      "damage": "2d10+1",
+      "range": 24,
+      "slots": 3,
+      "properties": "Precisa, Duas mãos, Recarga",
+      "attribute": "tecnica",
+      "skill": "pontaria",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Chave de oficina improvisada",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Objeto comum com papel ficcional improvisado.",
+      "category": "fantasia",
+      "damage": "1d10+1",
+      "range": 1,
+      "slots": 1,
+      "properties": "Impacto",
+      "attribute": "brutalidade",
+      "skill": "",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Martelo de manutenção",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Ferramenta de cenário; dados totalmente abstratos.",
+      "category": "fantasia",
+      "damage": "1d10+1",
+      "range": 1,
+      "slots": 1,
+      "properties": "Impacto",
+      "attribute": "brutalidade",
+      "skill": "",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Gambiarra goblin de molas",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Engenhoca ficcional cujos efeitos são negociados em mesa.",
+      "category": "fantasia",
+      "damage": "1d10",
+      "range": 1,
+      "slots": 2,
+      "properties": "Caótica",
+      "attribute": "brutalidade",
+      "skill": "",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Corneta de Chiado Arcano",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Engenhoca goblin que produz distrações mágicas.",
+      "category": "fantasia",
+      "damage": "1d10",
+      "range": 4,
+      "slots": 2,
+      "properties": "Área, Raro",
+      "attribute": "tecnica",
+      "skill": "pontaria",
+      "splash": "1d10"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Cápsula de Luz de Rua",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Brilho fictício para interromper a visibilidade durante uma cena.",
+      "category": "fantasia",
+      "damage": "1d10",
+      "range": 5,
+      "slots": 1,
+      "properties": "Consumível, Área",
+      "attribute": "tecnica",
+      "skill": "pontaria",
+      "splash": "1d10"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Escudo de panela de sindicato",
+    "type": "arma",
+    "img": "icons/svg/sword.svg",
+    "system": {
+      "description": "Peça clássica da barricada do bairro.",
+      "category": "fantasia",
+      "damage": "1d10",
+      "range": 1,
+      "slots": 1,
+      "properties": "Impacto",
+      "attribute": "brutalidade",
+      "skill": "",
+      "splash": ""
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Capacete simples",
+    "type": "protecao",
+    "img": "icons/svg/shield.svg",
+    "system": {
+      "description": "Reduz 1 PV de dano na cabeça.",
+      "category": "fantasia",
+      "region": "cabeca",
+      "armor": 1,
+      "equipped": false,
+      "slots": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Colete leve",
+    "type": "protecao",
+    "img": "icons/svg/shield.svg",
+    "system": {
+      "description": "Reduz 1 PV de dano no tronco.",
+      "category": "fantasia",
+      "region": "torso",
+      "armor": 1,
+      "equipped": false,
+      "slots": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Colete reforçado",
+    "type": "protecao",
+    "img": "icons/svg/shield.svg",
+    "system": {
+      "description": "Reduz 2 PV de dano no tronco.",
+      "category": "fantasia",
+      "region": "torso",
+      "armor": 2,
+      "equipped": false,
+      "slots": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Braçadeira de trabalho",
+    "type": "protecao",
+    "img": "icons/svg/shield.svg",
+    "system": {
+      "description": "Proteção pontual de um braço.",
+      "category": "fantasia",
+      "region": "bracoE",
+      "armor": 1,
+      "equipped": false,
+      "slots": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Kit médico comunitário",
+    "type": "equipamento",
+    "img": "icons/svg/item-bag.svg",
+    "system": {
+      "description": "Três usos por missão, teste Técnica + Medicina dif.7; recupera 1D10 sem explosão.",
+      "category": "fantasia",
+      "quantity": 3
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Kit de ferramentas",
+    "type": "equipamento",
+    "img": "icons/svg/item-bag.svg",
+    "system": {
+      "description": "Apoia desafios de Mecânica e manutenção da comunidade.",
+      "category": "fantasia",
+      "quantity": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Pacote de suprimentos",
+    "type": "equipamento",
+    "img": "icons/svg/item-bag.svg",
+    "system": {
+      "description": "Recurso narrativo de uma missão curta.",
+      "category": "fantasia",
+      "quantity": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Mochila comunitária",
+    "type": "equipamento",
+    "img": "icons/svg/item-bag.svg",
+    "system": {
+      "description": "Aumenta capacidade de carga de 8 para 12 espaços.",
+      "category": "fantasia",
+      "quantity": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Caderno de assembleia",
+    "type": "equipamento",
+    "img": "icons/svg/item-bag.svg",
+    "system": {
+      "description": "Registros de propostas e compromissos coletivos.",
+      "category": "fantasia",
+      "quantity": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Pastel restaurador de Dona Graça",
+    "type": "consumivel",
+    "img": "icons/svg/potion.svg",
+    "system": {
+      "description": "Consumir conforme os intervalos de recuperação previstos pelo narrador; alimento comunitário fictício.",
+      "category": "fantasia",
+      "quantity": 1,
+      "slots": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Caldo da Resistência",
+    "type": "consumivel",
+    "img": "icons/svg/potion.svg",
+    "system": {
+      "description": "Refeição restauradora do bairro; sem cura automática por descanso.",
+      "category": "fantasia",
+      "quantity": 1,
+      "slots": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Marmita de mutirão",
+    "type": "consumivel",
+    "img": "icons/svg/potion.svg",
+    "system": {
+      "description": "Alimento coletivo: sua obtenção exige roleplay, vínculos e trabalho.",
+      "category": "fantasia",
+      "quantity": 1,
+      "slots": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Já Tentou Reiniciar?",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, 1 ação: desativa por 1 rodada um dispositivo eletrônico acessível ou já controlável por acesso narrativo. Não anula mecanismos independentes ou criaturas.",
+      "category": "fantasia",
+      "officio": "Técnico do TI Revolucionário",
+      "level": "inicial",
+      "effect": "1/combate, 1 ação: desativa por 1 rodada um dispositivo eletrônico acessível ou já controlável por acesso narrativo. Não anula mecanismos independentes ou criaturas.",
+      "cost": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Ainda Estou no Expediente!",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate: ignora penalidades de uma condição física durante o seu turno; não ignora incapacitação de cabeça/tronco.",
+      "category": "fantasia",
+      "officio": "CLT Indestrutível",
+      "level": "inicial",
+      "effect": "1/combate: ignora penalidades de uma condição física durante o seu turno; não ignora incapacitação de cabeça/tronco.",
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Eu Sou do RH!",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: assume a aparência de funcionário conhecido por uma cena. Não produz documentos, voz perfeita nem competências.",
+      "category": "fantasia",
+      "officio": "Fiscal de CPF",
+      "level": "inicial",
+      "effect": "1/cena, 1 ação: assume a aparência de funcionário conhecido por uma cena. Não produz documentos, voz perfeita nem competências.",
+      "cost": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Primeiros Socorros",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate: ao usar o kit médico, move 2 quadrados antes ou depois sem ação adicional (limite global de movimento gratuito).",
+      "category": "fantasia",
+      "officio": "Socorrista de Barricada",
+      "level": "inicial",
+      "effect": "1/combate: ao usar o kit médico, move 2 quadrados antes ou depois sem ação adicional (limite global de movimento gratuito).",
+      "cost": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Caminho Livre",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "O primeiro quadrado de terreno difícil de cada deslocamento custa 1 em vez de 2.",
+      "category": "fantasia",
+      "officio": "Batedor de Ocupação",
+      "level": "inicial",
+      "effect": "O primeiro quadrado de terreno difícil de cada deslocamento custa 1 em vez de 2.",
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Assembleia Relâmpago",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, 1 ação, Articulação dif.7: até 2 aliados que ouçam a até 5 quad. recebem +1 Defesa até seu próximo turno (máx. 9, sem empilhar).",
+      "category": "fantasia",
+      "officio": "Agitador Sindical",
+      "level": "inicial",
+      "effect": "1/combate, 1 ação, Articulação dif.7: até 2 aliados que ouçam a até 5 quad. recebem +1 Defesa até seu próximo turno (máx. 9, sem empilhar).",
+      "cost": 1
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Rede Clandestina",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: após detectar vulnerabilidade, +1D10 ao próximo teste aliado de infiltração ou dispositivo na mesma instalação.",
+      "effect": "1/cena, 1 ação: após detectar vulnerabilidade, +1D10 ao próximo teste aliado de infiltração ou dispositivo na mesma instalação.",
+      "officio": "Técnico do TI Revolucionário",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Mapa de Vulnerabilidades",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação, Técnica dif.7: revela ao grupo rota alternativa ou elemento de cobertura que já exista na cena.",
+      "effect": "1/cena, 1 ação, Técnica dif.7: revela ao grupo rota alternativa ou elemento de cobertura que já exista na cena.",
+      "officio": "Técnico do TI Revolucionário",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Ruído Corporativo",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, 1 ação, Técnica dif.7: adversário dependente de equipamento a até 5 quad. sofre −1D10 no próximo teste do equipamento.",
+      "effect": "1/combate, 1 ação, Técnica dif.7: adversário dependente de equipamento a até 5 quad. sofre −1D10 no próximo teste do equipamento.",
+      "officio": "Técnico do TI Revolucionário",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Rotina de Emergência",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: opera à distância mecanismo conectado previamente identificado; riscos ainda exigem teste.",
+      "effect": "1/cena, 1 ação: opera à distância mecanismo conectado previamente identificado; riscos ainda exigem teste.",
+      "officio": "Técnico do TI Revolucionário",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Pane Geral",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações, Técnica dif.8: até 3 dispositivos conectados da mesma instalação inativos por 1 rodada.",
+      "effect": "1/missão, 2 ações, Técnica dif.8: até 3 dispositivos conectados da mesma instalação inativos por 1 rodada.",
+      "officio": "Técnico do TI Revolucionário",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Rede Libertada",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações: durante 2 rodadas, até 3 aliados em área preparada podem Ajudar em testes de dispositivo como se compartilhassem a mesma estação; contribuição concreta necessária.",
+      "effect": "1/missão, 2 ações: durante 2 rodadas, até 3 aliados em área preparada podem Ajudar em testes de dispositivo como se compartilhassem a mesma estação; contribuição concreta necessária.",
+      "officio": "Técnico do TI Revolucionário",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Hora de Almoço",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, reação: reduza o próximo dano contra você em 4 após proteção.",
+      "effect": "1/combate, reação: reduza o próximo dano contra você em 4 após proteção.",
+      "officio": "CLT Indestrutível",
+      "level": "basica",
+      "cost": 0,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Colega na Escala",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: aliado até 5 quad. move 2 sem ação.",
+      "effect": "1/cena, 1 ação: aliado até 5 quad. move 2 sem ação.",
+      "officio": "CLT Indestrutível",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Segura a Porta!",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, 1 ação: você ou aliado adjacente recebe redução 4 contra próximo dano antes do seu próximo turno; não acumula com Guardar.",
+      "effect": "1/combate, 1 ação: você ou aliado adjacente recebe redução 4 contra próximo dano antes do seu próximo turno; não acumula com Guardar.",
+      "officio": "CLT Indestrutível",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Ninguém Fica Para Trás",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: você e aliado adjacente movem 1 quad. cada, ignorando o primeiro terreno difícil.",
+      "effect": "1/cena, 1 ação: você e aliado adjacente movem 1 quad. cada, ignorando o primeiro terreno difícil.",
+      "officio": "CLT Indestrutível",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Piquete Organizado",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações: até 3 aliados a até 5 quad. movem 2 cada, ignorando primeiro terreno difícil.",
+      "effect": "1/missão, 2 ações: até 3 aliados a até 5 quad. movem 2 cada, ignorando primeiro terreno difícil.",
+      "officio": "CLT Indestrutível",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Contrato Coletivo de Defesa",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações: até 3 aliados a até 5 quad. reduzem 3 do primeiro dano recebido nas próximas 2 rodadas.",
+      "effect": "1/missão, 2 ações: até 3 aliados a até 5 quad. reduzem 3 do primeiro dano recebido nas próximas 2 rodadas.",
+      "officio": "CLT Indestrutível",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Crachá de Terceiro",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena: +1D10 em teste social com autoridade corporativa falsa.",
+      "effect": "1/cena: +1D10 em teste social com autoridade corporativa falsa.",
+      "officio": "Fiscal de CPF",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Auditoria Reversa",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação, Lábia ou Técnica dif.7: descobre incoerência, fraude ou vínculo acessível.",
+      "effect": "1/cena, 1 ação, Lábia ou Técnica dif.7: descobre incoerência, fraude ou vínculo acessível.",
+      "officio": "Fiscal de CPF",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Formulário Infinito",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, 1 ação, Lábia dif.7: funcionário sujeito à autoridade recebe −1D10 no próximo teste de comando ou burocrático.",
+      "effect": "1/combate, 1 ação, Lábia dif.7: funcionário sujeito à autoridade recebe −1D10 no próximo teste de comando ou burocrático.",
+      "officio": "Fiscal de CPF",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Protocolo Alternativo",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: transforma requisito administrativo plausível em relógio de 1 sucesso; não altera proteção física.",
+      "effect": "1/cena, 1 ação: transforma requisito administrativo plausível em relógio de 1 sucesso; não altera proteção física.",
+      "officio": "Fiscal de CPF",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Carimbo Impossível",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 1 ação, Lábia dif.8: adia por uma cena protocolo corporativo não emergencial.",
+      "effect": "1/missão, 1 ação, Lábia dif.8: adia por uma cena protocolo corporativo não emergencial.",
+      "officio": "Fiscal de CPF",
+      "level": "avancada",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Quebra de Hierarquia",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações, Lábia dif.8: subordinado que percebe contradição não segue a próxima ordem do chefe, podendo agir por conta própria.",
+      "effect": "1/missão, 2 ações, Lábia dif.8: subordinado que percebe contradição não segue a próxima ordem do chefe, podendo agir por conta própria.",
+      "officio": "Fiscal de CPF",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Triagem de Guerra",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena: após cura com kit bem-sucedida, recupera +2 PV na mesma região.",
+      "effect": "1/cena: após cura com kit bem-sucedida, recupera +2 PV na mesma região.",
+      "officio": "Socorrista de Barricada",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Plano de Alta",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, fora de combate, 1 uso de kit e Técnica + Medicina dif.7: remove condição temporária de até 1 cena.",
+      "effect": "1/missão, fora de combate, 1 uso de kit e Técnica + Medicina dif.7: remove condição temporária de até 1 cena.",
+      "officio": "Socorrista de Barricada",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Atendimento Coberto",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, reação: reduz em 3 o dano de aliado a até 2 quad.; não gasta kit.",
+      "effect": "1/combate, reação: reduz em 3 o dano de aliado a até 2 quad.; não gasta kit.",
+      "officio": "Socorrista de Barricada",
+      "level": "basica",
+      "cost": 0,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Analgésico Improvisado",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena: ao curar com kit, alvo ignora uma penalidade física −1D10 no próximo teste; não suspende incapacidade regional.",
+      "effect": "1/cena: ao curar com kit, alvo ignora uma penalidade física −1D10 no próximo teste; não suspende incapacidade regional.",
+      "officio": "Socorrista de Barricada",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Posto de Barricada",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações e 1 uso de kit: até 3 aliados no posto recuperam 1D10 não explosivo cada numa região, uma vez; respeita limite por região/cena.",
+      "effect": "1/missão, 2 ações e 1 uso de kit: até 3 aliados no posto recuperam 1D10 não explosivo cada numa região, uma vez; respeita limite por região/cena.",
+      "officio": "Socorrista de Barricada",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Evacuação Solidária",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 1 ação e 1 uso de kit: aliado a até 2 quad. fora de combate retorna a 1 PV em cabeça/tronco; age somente no turno seguinte.",
+      "effect": "1/missão, 1 ação e 1 uso de kit: aliado a até 2 quad. fora de combate retorna a 1 PV em cabeça/tronco; age somente no turno seguinte.",
+      "officio": "Socorrista de Barricada",
+      "level": "avancada",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Marcar Rota",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: aliado até 5 quad. move 2 sem ação.",
+      "effect": "1/cena, 1 ação: aliado até 5 quad. move 2 sem ação.",
+      "officio": "Batedor de Ocupação",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Fora do Radar",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena: rerrola um dado de Furtividade ou Pilotagem; novo resultado prevalece.",
+      "effect": "1/cena: rerrola um dado de Furtividade ou Pilotagem; novo resultado prevalece.",
+      "officio": "Batedor de Ocupação",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Olho no Atalho",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: escolha rota de até 3 quad. que ignora terreno difícil por uma rodada para 2 aliados.",
+      "effect": "1/cena, 1 ação: escolha rota de até 3 quad. que ignora terreno difícil por uma rodada para 2 aliados.",
+      "officio": "Batedor de Ocupação",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Ponto Alto",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate: após mover para posição elevada ou cobertura, recebe +1 Defesa até próximo turno (máx. 9).",
+      "effect": "1/combate: após mover para posição elevada ou cobertura, recebe +1 Defesa até próximo turno (máx. 9).",
+      "officio": "Batedor de Ocupação",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Corredor de Evacuação",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações: até 3 aliados que ouçam movem 3 quad. sem ação; sem atravessar obstáculos.",
+      "effect": "1/missão, 2 ações: até 3 aliados que ouçam movem 3 quad. sem ação; sem atravessar obstáculos.",
+      "officio": "Batedor de Ocupação",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Mapa Vivo",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações: até 3 quad. visíveis tornam-se rota segura por 2 rodadas, aliados ignoram terreno difícil nela; bloqueios permanecem.",
+      "effect": "1/missão, 2 ações: até 3 quad. visíveis tornam-se rota segura por 2 rodadas, aliados ignoram terreno difícil nela; bloqueios permanecem.",
+      "officio": "Batedor de Ocupação",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Onda de Apoio",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação, Articulação dif.7: até 2 aliados movem 1 quad. cada sem ação.",
+      "effect": "1/cena, 1 ação, Articulação dif.7: até 2 aliados movem 1 quad. cada sem ação.",
+      "officio": "Agitador Sindical",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Pauta Comum",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/cena, 1 ação: +1D10 em teste coletivo de Mobilização ou Negociação cuja meta já tenha sido anunciada.",
+      "effect": "1/cena, 1 ação: +1D10 em teste coletivo de Mobilização ou Negociação cuja meta já tenha sido anunciada.",
+      "officio": "Agitador Sindical",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Ordem de Retirada",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, 1 ação: aliado a até 5 quad. move 3 sem ação, apenas afastando-se de ameaça visível.",
+      "effect": "1/combate, 1 ação: aliado a até 5 quad. move 3 sem ação, apenas afastando-se de ameaça visível.",
+      "officio": "Agitador Sindical",
+      "level": "basica",
+      "cost": 1,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Voz de Resistência",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/combate, reação: aliado até 5 quad. reduz 3 de dano do próximo ataque se puder ouvir.",
+      "effect": "1/combate, reação: aliado até 5 quad. reduz 3 de dano do próximo ataque se puder ouvir.",
+      "officio": "Agitador Sindical",
+      "level": "basica",
+      "cost": 0,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Piquete Geral",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações, Articulação dif.8: até 3 quad. adjacentes tornam-se terreno difícil para adversários por 2 rodadas, sem bloquear saídas.",
+      "effect": "1/missão, 2 ações, Articulação dif.8: até 3 quad. adjacentes tornam-se terreno difícil para adversários por 2 rodadas, sem bloquear saídas.",
+      "officio": "Agitador Sindical",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  },
+  {
+    "name": "Assembleia de Emergência",
+    "type": "tecnica",
+    "img": "icons/svg/upgrade.svg",
+    "system": {
+      "description": "1/missão, 2 ações: até 2 aliados até 5 quad. escolhem mover 3 sem ação OU reduzir 4 do próximo dano antes do próximo turno.",
+      "effect": "1/missão, 2 ações: até 2 aliados até 5 quad. escolhem mover 3 sem ação OU reduzir 4 do próximo dano antes do próximo turno.",
+      "officio": "Agitador Sindical",
+      "level": "avancada",
+      "cost": 2,
+      "rarity": "comum"
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true
+      }
+    }
+  }
+]

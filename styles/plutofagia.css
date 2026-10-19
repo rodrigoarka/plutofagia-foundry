@@ -1,0 +1,82 @@
+/* Registro impresso em tinta: estética do Livro do Sindicato. Todos os seletores são isolados. */
+.plutofagia {--pluto-red:#971f23;--pluto-ink:#191713;--pluto-paper:#ede6d6;--pluto-gold:#b6994d;--pluto-light:#faf6ea;--pluto-line:#b1a794;color:var(--pluto-ink);font-family:Arial,Helvetica,sans-serif;}
+.plutofagia .window-content{padding:0;background:var(--pluto-paper);}
+.plutofagia .pluto-scroll{overflow:auto;height:100%;}
+.pluto-sheet{color:#1b1917;background:repeating-linear-gradient(10deg,rgba(47,31,8,.018) 0 2px,transparent 2px 7px),#ece5d7;min-height:100%;padding:12px 19px 18px;line-height:1.28;font-size:13px;}
+.pluto-sheet *{box-sizing:border-box;}
+.pluto-sheet input,.pluto-sheet select,.pluto-sheet textarea {font-family:inherit;color:#1b1917;background:#fcf9f2;border:1px solid #b3a794;border-radius:1px;padding:5px 7px;min-width:0;min-height:25px;box-shadow:none;}
+.pluto-sheet label{display:flex;flex-direction:column;gap:3px;font-size:11px;text-transform:uppercase;font-weight:800;letter-spacing:.25px;margin-bottom:4px;}
+.pluto-sheet select{max-width:100%;}
+.pluto-sheet textarea{min-height:51px;resize:vertical;text-transform:none;}
+.pluto-sheet input[type="checkbox"]{width:15px;min-width:15px;height:15px;min-height:15px;accent-color:#141414;}
+.pluto-sheet button{font:inherit;color:#161514;border:1px solid #333;background:#ddd3bf;min-height:27px;padding:3px 8px;cursor:pointer;border-radius:1px;font-weight:800;}
+.pluto-sheet button:hover {background:#b9a88c;}
+.pluto-sheet button:focus-visible,.pluto-sheet input:focus-visible,.pluto-sheet select:focus-visible{outline:2px solid #a62c27;outline-offset:1px;}
+.pluto-masthead{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:1px 0 11px;border-bottom:5px solid #181818;margin-bottom:10px;}
+.pluto-logo{height:auto;width:min(280px,60%);max-height:90px;object-fit:contain;object-position:left center;}
+.pluto-masthead-right{text-align:right;max-width:40%;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.pluto-masthead-right small{font:800 10px Georgia,serif;letter-spacing:1.3px;}
+.pluto-masthead-right span{font:900 18px Impact,'Arial Black',sans-serif;color:#9a2628;}
+.pluto-person-bar{display:flex;align-items:stretch;gap:12px;}
+.pluto-portrait{height:116px;width:115px;object-fit:cover;background:#ddd5c4;border:3px solid #222;}
+.pluto-person-data{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;}
+.pluto-person-data>label>input{font-size:17px;font-weight:900;}
+.pluto-split{display:flex;gap:8px;}
+.pluto-split>label{flex:1;min-width:0;}
+.pluto-tabs{display:flex;border-top:1px solid #191919;border-bottom:3px solid #191919;margin:12px -2px 8px;gap:3px;}
+.pluto-tabs button{flex:1;background:#d9d0bf;border:0;min-height:34px;font:900 16px Impact,'Arial Black',sans-serif;text-transform:uppercase;letter-spacing:.2px;}
+.pluto-tabs button.active{background:#151515;color:#f5e8cd;}
+.pluto-content{padding-bottom:14px;}
+.pluto-content[hidden]{display:none !important;}
+.pluto-ribbon{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #191919;margin:10px 0 7px;gap:7px;}
+.pluto-ribbon h3{font:900 17px Impact,'Arial Black',sans-serif;letter-spacing:.5px;color:#942024;text-transform:uppercase;margin:0 0 3px;}
+.pluto-ribbon>span,.pluto-ribbon>button{font:700 11px Georgia,serif;color:#222;}
+.pluto-warning{color:#9b2424!important;}
+.pluto-attributes{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;}
+.pluto-attr-row{display:flex;justify-content:space-between;align-items:center;gap:7px;border-bottom:1px dashed #b1a38c;padding:6px 0;}
+.pluto-attr-row>b{font-size:12px;flex:1;}
+.pluto-pips{display:flex;gap:3px;}
+.pluto-sheet .pluto-pip{width:26px;height:26px;min-height:26px;min-width:26px;padding:0;border-radius:50%;background:#ece5d7;color:#222;border:1.5px solid #222;text-align:center;font-weight:900;}
+.pluto-sheet .pluto-pip.filled{background:#191919;color:white;}
+.pluto-sheet .pluto-icon-btn{border:0;background:transparent;padding:0 2px;width:25px;font-size:15px;}
+.pluto-skills{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px 8px;}
+.pluto-skill{display:flex!important;align-items:center;flex-direction:row!important;gap:4px!important;text-transform:none!important;font-size:12px!important;margin:0!important;}
+.pluto-skill button{margin-left:auto;min-height:21px;height:21px;border:0;background:transparent;padding:0 2px;font-size:14px;}
+.pluto-quick-test{display:flex;flex-wrap:wrap;align-items:end;gap:6px;}
+.pluto-quick-test>label{flex:1;min-width:90px;}
+.pluto-quick-test label:has(input[type="number"]){min-width:64px;flex:0 0 77px;}
+.pluto-primary,.pluto-sheet button.pluto-primary{background:#9c2224;color:white;border:2px solid #3c0e0d;padding:4px 16px;letter-spacing:.8px;}
+.pluto-primary:hover{background:#bc282b;}
+.pluto-narrative{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.pluto-combat-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;}
+.pluto-combat-stats>div,.pluto-combat-stats>label{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#181818;color:#f7edda;border:1px solid #393333;padding:8px 4px;min-height:62px;}
+.pluto-combat-stats small{font:700 10px Georgia,serif;color:#e4c9a8;text-transform:uppercase;}
+.pluto-combat-stats strong{font:900 20px Impact,sans-serif;color:white;}
+.pluto-combat-stats>div>input,.pluto-combat-stats>label>input{max-width:58px;text-align:center;max-height:24px;}
+.pluto-buttons{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:9px 0;}
+.pluto-buttons>span,.pluto-buttons>label{font-size:12px;font-weight:700;align-items:center;flex-direction:row;margin:0;}
+.pluto-buttons input{width:44px;}
+.pluto-regions{border:1px solid #8e806e;}
+.pluto-region-row,.pluto-region-title{display:grid;grid-template-columns:1.7fr 1fr .6fr .7fr;align-items:center;gap:5px;text-align:center;padding:3px 8px;border-bottom:1px solid #c7bdac;}
+.pluto-region-row:nth-child(odd){background:#dfd7c8;}
+.pluto-region-title{background:#1e1c1a;color:#f8ecdc;font-weight:900;text-transform:uppercase;font-size:11px;}
+.pluto-region-row b{text-align:left;font-size:12px;}
+.pluto-region-row input{width:55px;margin:auto;text-align:center;height:23px;min-height:22px;}
+.pluto-list{display:flex;flex-direction:column;gap:4px;}
+.pluto-item-row{border:1px solid #b9a78c;background:#f7f0e2;display:flex;gap:8px;align-items:center;padding:6px 7px;min-height:38px;}
+.pluto-item-row>b{font-weight:900;min-width:138px;max-width:215px;}
+.pluto-item-row>span{flex:1;line-height:1.3;color:#555044;overflow-wrap:anywhere;}
+.pluto-item-row>button{font-size:11px;flex-shrink:0;}
+.pluto-footnote{display:block;margin:8px 0;font:italic 11px/1.45 Georgia,serif;color:#4e4437;}
+.pluto-conditions{display:flex;flex-wrap:wrap;gap:5px 13px;}
+.pluto-conditions label{display:flex;flex-direction:row;align-items:center;gap:5px;font-size:12px;margin:0;}
+.pluto-end-note{display:flex;justify-content:space-between;gap:8px;margin-top:12px;padding-top:9px;border-top:3px solid #151515;color:#9c2428;font:900 12px Impact,'Arial Black',sans-serif;}
+.pluto-item-sheet{padding-top:20px;}
+.pluto-item-sheet>label{margin:8px 0;}
+.pluto-item-sheet textarea{min-height:90px;}
+.pluto-chat{border-left:5px solid #9b282c;background:#efe8d9;color:#171414;padding:8px 10px;margin:6px 0;}
+.pluto-chat strong{color:#8d1d21;font-size:1.05em;}
+.pluto-chat button{margin:4px;padding:3px 8px;}
+.pluto-chat small{display:block;font-size:.85em;margin-top:5px;}
+.pluto-apply-ui{display:flex;flex-wrap:wrap;align-items:center;gap:5px;}
+@media (max-width:680px){.pluto-attributes,.pluto-skills,.pluto-narrative{grid-template-columns:1fr 1fr;}.pluto-person-bar{flex-direction:column;}.pluto-masthead-right{display:none;}.pluto-combat-stats{grid-template-columns:repeat(3,1fr)}.pluto-item-row{flex-wrap:wrap}.pluto-item-row>span{min-width:140px}.pluto-sheet{padding:8px 11px;}}

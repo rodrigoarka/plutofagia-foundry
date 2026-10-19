@@ -1,0 +1,63 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'system.json'),'utf8'));
+assert.equal(manifest.id,'plutofagia');
+assert.equal(manifest.compatibility.minimum,'13');
+assert.equal(manifest.grid.type,1);
+assert.equal(manifest.grid.diagonals,1);
+for(const file of [...manifest.esmodules,...manifest.styles,'templates/actor.hbs','templates/item.hbs','templates/community.hbs','assets/logo.png','assets/catalog.json'])assert.ok(fs.existsSync(path.join(root,file)),file);
+const catalog=JSON.parse(fs.readFileSync(path.join(root,'assets/catalog.json'),'utf8'));
+assert.equal(catalog.length,68);
+assert.equal(catalog.filter(i=>i.type==='tecnica').length,42);
+assert.equal(new Set(catalog.map(i=>i.name)).size,catalog.length);
+assert.equal(catalog.filter(i=>i.type==='tecnica'&&i.system.level==='inicial').length,6);
+for(const i of catalog)assert.ok(manifest.documentTypes.Item[i.type]);
+console.log('Manifesto v13 / 68 itens / 42 técnicas OK');
+const config=await import('../module/config.mjs');
+assert.equal(config.hpMaximum('pernaE',2,'normal'),16);
+assert.equal(config.hpMaximum('pernaD',2,'normal'),16);
+assert.equal(config.hpMaximum('pernaE',2,'cauda'),32);
+assert.equal(config.hpMaximum('pernaD',2,'cauda'),0);
+assert.equal(config.hpMaximum('bracoE',2,'bracoUnico'),28);
+assert.equal(config.hpMaximum('bracoD',2,'bracoUnico'),0);
+assert.equal(config.hpMaximum('cabeca',3,'normal'),14);
+console.log('PV regionais e anatomias unificadas OK');
+globalThis.Actor=class {prepareDerivedData(){} async update(data){for(const [k,v] of Object.entries(data)){const path=k.replace(/^system\./,'').split('.');let r=this.system;for(const key of path.slice(0,-1))r=r[key];r[path.at(-1)]=v;}return this;} };
+globalThis.Item=class {};
+const {PlutoActor}=await import('../module/actor.mjs');
+const makeActor=()=>{
+ const a=new PlutoActor();a.type='operario';a.items=[];
+ a.system={anatomy:'normal',attributes:{agilidade:3,resistencia:2},defense:{base:6,value:6},movement:{value:5,max:5},regions:Object.fromEntries(Object.entries(config.REGION_BASE).map(([k,max])=>[k,{value:max,max,armor:0}]))};return a;
+};
+const char=makeActor();char.prepareDerivedData();assert.equal(char.system.movement.value,5);
+await char.changeAnatomy('pernaUnica');char.prepareDerivedData();assert.equal(char.system.regions.pernaE.max,32);assert.equal(char.system.regions.pernaD.value,0);assert.equal(char.system.movement.value,5);
+await char.applyRegionalDamage('pernaE',10);char.prepareDerivedData();assert.equal(char.system.regions.pernaE.value,22);assert.equal(char.system.movement.value,2);
+await char.changeAnatomy('normal');char.prepareDerivedData();assert.equal(char.system.regions.pernaE.max,16);assert.equal(char.system.regions.pernaD.max,16);assert.equal(char.system.regions.pernaE.value+char.system.regions.pernaD.value,22);
+console.log('Derivação de movimentos / troca anatômica / dano OK');
+const messages=[];
+let faces=[1,2,4,8,9,5],called=[];
+globalThis.Roll=class {
+ constructor(formula){this.formula=formula;called.push(formula);this.total=formula==='1d10'?10:14;this.dice=[];}
+ async evaluate(){if(this.formula==='6d10'){this.dice=[{faces:10,results:faces.map(result=>({result,active:true}))}];}return this;}
+ async toMessage(msg){messages.push(msg);return msg;}
+};
+globalThis.ChatMessage={getSpeaker:({actor})=>({alias:actor.name})};
+const {rollPool,rollExploding,GRID}=await import('../module/rules.mjs');
+const actor={name:'Operária',system:{attributes:{tecnica:5},skills:{mecanica:true}}};
+const result=await rollPool(actor,'tecnica','mecanica',1,10);
+assert.equal(result.wanted,7);assert.equal(result.count,6);assert.equal(result.highest,10);assert.equal(result.success,true);
+assert.ok(messages[0].content.includes('não gera crítico'));
+const dmg=await rollExploding('2d10+3',actor,{weapon:'Orbe de ficção'});
+assert.equal(dmg.total,14);assert.equal(called.at(-1),'2d10x+3');
+console.log('6D10 + rerrolagem / 10 sem crítico / dano explosivo OK');
+const at={center:{x:150,y:150}},to={center:{x:250,y:250}},tgt={center:{x:250,y:150},document:{rotation:0}};
+globalThis.canvas={scene:{grid:{size:100}}};
+assert.equal(GRID.distance(at,to),1);
+assert.equal(GRID.position(at,tgt),'flanco');
+const behind={center:{x:250,y:250}};assert.equal(GRID.position(behind,tgt),'costas');
+const rotated={center:{x:250,y:150},document:{rotation:90}};assert.equal(GRID.position({center:{x:350,y:150}},rotated),'frente');
+console.log('Distância diagonal de 1 quadrado / flanco / costas OK');
+console.log('Todos os smoke tests passaram (simulados, sem servidor Foundry).');

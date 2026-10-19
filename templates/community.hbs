@@ -1,0 +1,21 @@
+<section class="pluto-sheet pluto-community-sheet">
+  <header class="pluto-masthead"><img class="pluto-logo" src="systems/plutofagia/assets/logo.png" /><small>CADERNO DA COMUNIDADE / BAIRROS VIVOS</small></header>
+  <label>Nome do bairro ou coletivo <input data-field="name" value="{{actor.name}}" /></label>
+  <div class="pluto-ribbon"><h3>Indicadores territoriais</h3></div>
+  <div class="pluto-combat-stats">
+   <label><small>Apoio comunitário</small><input data-field="system.apoio" type="number" min="0" max="4" value="{{sys.apoio}}" /></label>
+   <label><small>Pressão corporativa</small><input data-field="system.pressao" type="number" min="0" max="4" value="{{sys.pressao}}" /></label>
+   <label><small>Estrutura</small><input data-field="system.estrutura" type="number" min="0" max="4" value="{{sys.estrutura}}" /></label>
+   <label><small>AP</small><input data-field="system.ap" type="number" min="0" value="{{sys.ap}}" /></label>
+   <label><small>PR</small><input data-field="system.pr" type="number" min="0" max="3" value="{{sys.pr}}" /></label>
+  </div>
+  <div class="pluto-ribbon"><h3>Crise de reféns / negociação</h3><span>3 sucessos antes de 2 complicações</span></div>
+  <div class="pluto-split">
+    <label>Avanços de acordo (0–3) <input data-field="system.acordo" type="number" min="0" max="3" value="{{sys.acordo}}" /></label>
+    <label>Complicações (0–2) <input data-field="system.complicacoes" type="number" min="0" max="2" value="{{sys.complicacoes}}" /></label>
+  </div>
+  <p class="pluto-footnote">Propostas reais dentro da ficção são necessárias: uma falha altera condições, prazo ou exigência; não produz violência automática. O Maestro resolve a transição entre cativeiro e combate.</p>
+  <label>Projeto comunitário <textarea data-field="system.objetivo">{{sys.objetivo}}</textarea></label>
+  <label>Ata da assembleia <textarea data-field="system.notas">{{sys.notas}}</textarea></label>
+  <footer class="pluto-end-note">SE É DO BAIRRO, NÃO É DO DRAGÃO.</footer>
+</section>

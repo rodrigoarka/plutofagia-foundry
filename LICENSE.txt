@@ -1,0 +1,4 @@
+Conteúdo de sistema de RPG Plutofagia — projeto do usuário.
+Os direitos autorais do texto original, imagens, regras e identidade visual permanecem com seus titulares.
+Este pacote não inclui o software proprietário Foundry VTT.
+Este arquivo não concede licença automática para republicação por terceiros.
