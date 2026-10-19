@@ -9,10 +9,12 @@ Hooks.once('init',()=>{
  CONFIG.Actor.dataModels={operario:PlutoActorModel,npc:PlutoActorModel,comunidade:PlutoCommunityModel};
  CONFIG.Item.dataModels={arma:PlutoItemModel,protecao:PlutoItemModel,tecnica:PlutoItemModel,consumivel:PlutoItemModel,equipamento:PlutoItemModel};
  CONFIG.Actor.trackableAttributes={operario:{bar:['regions.torso','resources.pr'],value:['regions.cabeca.value','movement.value','defense.value']},npc:{bar:['regions.torso','resources.pr'],value:['regions.cabeca.value','movement.value','defense.value']},comunidade:{bar:[],value:['apoio','pressao','estrutura']}};
- const register=foundry.applications.apps.DocumentSheetConfig.registerSheet;
- register(foundry.documents.Actor,game.system.id,PlutoActorSheet,{types:['operario','npc'],makeDefault:true,label:'Ficha do Sindicato'});
- register(foundry.documents.Actor,game.system.id,PlutoCommunitySheet,{types:['comunidade'],makeDefault:true,label:'Ficha do Bairro'});
- register(foundry.documents.Item,game.system.id,PlutoItemSheet,{types:['arma','protecao','tecnica','consumivel','equipamento'],makeDefault:true,label:'Ficha de Inventário'});
+ const sheetConfig=foundry.applications.apps.DocumentSheetConfig;
+ // Em Foundry V13, preserve o receiver `DocumentSheetConfig` da API estática.
+ sheetConfig.registerSheet(foundry.documents.Actor,game.system.id,PlutoActorSheet,{types:['operario','npc'],makeDefault:true,label:'Ficha do Sindicato'});
+ sheetConfig.registerSheet(foundry.documents.Actor,game.system.id,PlutoCommunitySheet,{types:['comunidade'],makeDefault:true,label:'Ficha do Bairro'});
+ sheetConfig.registerSheet(foundry.documents.Item,game.system.id,PlutoItemSheet,{types:['arma','protecao','tecnica','consumivel','equipamento'],makeDefault:true,label:'Ficha de Inventário'});
+ console.info('[PLUTOFAGIA] Fichas V13 registradas: operário, NPC, comunidade e itens.');
  game.settings.register('plutofagia','catalogSeeded',{name:'Catálogo importado',hint:'Importar itens básicos apenas uma vez no mundo.',scope:'world',config:false,type:Boolean,default:false});
  game.settings.register('plutofagia','showMoveHints',{name:'Avisar deslocamento acima do máximo',hint:'Avisos opcionais sobre deslocamento de tokens em combate. Não bloqueia os movimentos.',scope:'world',config:true,type:Boolean,default:true});
  game.settings.register('plutofagia','initiativeMode',{name:'Iniciativa de combate',hint:'Use o botão na ficha para distribuir turnos alternados entre facções.',scope:'world',config:true,type:String,choices:{alternada:'Alternada por facção (manual)',nativa:'Nativa do Foundry'},default:'alternada'});

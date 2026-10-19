@@ -1,9 +1,25 @@
 {
-  "PLUTO.Name": "Plutofagia",
-  "PLUTO.Operario": "Operário",
-  "PLUTO.NPC": "Adversário",
-  "PLUTO.Comunidade": "Comunidade",
-  "PLUTO.Roll": "Rolar",
-  "PLUTO.Damage": "Dano explosivo",
-  "PLUTO.Syndicate": "Sindicato dos Inconvenientes"
+  "TYPES": {
+    "Actor": {
+      "operario": "Operário",
+      "npc": "NPC",
+      "comunidade": "Comunidade"
+    },
+    "Item": {
+      "arma": "Arma",
+      "protecao": "Proteção",
+      "tecnica": "Técnica",
+      "consumivel": "Consumível",
+      "equipamento": "Equipamento"
+    }
+  },
+  "PLUTO": {
+    "Name": "Plutofagia",
+    "Operario": "Operário",
+    "NPC": "Adversário",
+    "Comunidade": "Comunidade",
+    "Roll": "Rolar",
+    "Damage": "Dano explosivo",
+    "Syndicate": "Sindicato dos Inconvenientes"
+  }
 }
