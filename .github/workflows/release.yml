@@ -1,0 +1,32 @@
+name: Publicar sistema Foundry
+on:
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validar manifesto
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          m = json.loads(pathlib.Path('system.json').read_text())
+          assert m['id'] == 'plutofagia'
+          assert m['version'] == "${{ github.ref_name }}".removeprefix('v')
+          for p in m['esmodules'] + m['styles']:
+              assert pathlib.Path(p).is_file(), f'Arquivo ausente: {p}'
+          print('Manifesto e recursos essenciais OK')
+          PY
+      - name: Empacotar sistema (arquivos na raiz do ZIP)
+        run: |
+          zip -r plutofagia.zip system.json module templates styles assets lang tests README.md LICENSE.txt -x '*.DS_Store'
+          unzip -l plutofagia.zip | head -35
+      - name: Publicar GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" plutofagia.zip system.json --title "Plutofagia ${{ github.ref_name }}" --notes "Sistema Plutofagia para Foundry VTT 13. Requer validação em instalação real." --verify-tag
