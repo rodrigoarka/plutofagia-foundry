@@ -1,0 +1,67 @@
+name: Sincronizar fonte da Release
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+jobs:
+  importar:
+    if: github.event.release.tag_name == 'v0.9.2'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: plutofagia-importar-release
+      cancel-in-progress: false
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Baixar ZIP da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ github.event.release.tag_name }}
+        run: |
+          mkdir -p .release-tmp
+          gh release download "$VERSION" -p 'plutofagia.zip' -D .release-tmp
+      - name: Extrair e validar os dados
+        env:
+          VERSION: ${{ github.event.release.tag_name }}
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,zipfile
+          z=zipfile.ZipFile('.release-tmp/plutofagia.zip')
+          for name in z.namelist():
+              path=pathlib.PurePosixPath(name)
+              if path.is_absolute() or '..' in path.parts:
+                  raise SystemExit(f'ZIP contém caminho inválido: {name}')
+          root=pathlib.Path('.release-tmp/source')
+          root.mkdir()
+          z.extractall(root)
+          m=json.loads((root/'system.json').read_text())
+          expected=os.environ['VERSION'].removeprefix('v')
+          assert m['version']==expected,(m['version'],expected)
+          assert m['id']=='plutofagia'
+          for file in ['module/main.mjs','module/compendia.mjs','module/inventory-ui.mjs','assets/cartas.json','templates/actor.hbs']:
+              assert (root/file).is_file(),file
+          cards=json.loads((root/'assets/cartas.json').read_text())
+          assert len(cards)==60
+          print('Conteúdo e manifesto validados:',expected,'cartas:',len(cards))
+          PY
+      - name: Testar o sistema com Node
+        run: |
+          cd .release-tmp/source
+          for file in module/*.mjs; do node --check "$file"; done
+          node --test tests/*.mjs
+      - name: Atualizar código-fonte e manifesto no Git
+        run: |
+          cp -R .release-tmp/source/. .
+          git add system.json README.md LICENSE.txt module templates styles assets lang tests
+          if git diff --cached --quiet; then
+            echo 'Já está sincronizado.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "chore: sincroniza fonte da release ${{ github.event.release.tag_name }}"
+            git push origin HEAD:main
+          fi
