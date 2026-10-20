@@ -1,3 +1,4 @@
+import {diceTape,explosionStamps} from './chat-ui.mjs';
 import {ATTRS,SKILLS,REGION_KEYS,REGION_NAME,DMG_AREA,OFFICES,escapeHTML,clamp,absent,SIZE} from './config.mjs';
 const speaker=a=>ChatMessage.getSpeaker({actor:a});
 const notify=(s)=>ui.notifications?.warn(s);
@@ -40,7 +41,8 @@ export async function rollPool(actor,attr,skill='',modifier=0,difficulty=7,opts=
   const success=top>=difficulty;
   const flavor=`${ATTRS[attr]}${trained?' + '+SKILLS[skill]:''}${modifier?` (${modifier>0?'+':''}${modifier}D10)`:''} · dificuldade ${difficulty}`;
   const note=replaceIndex!==null&&rerollValue!==null?`<p>Excesso de 6D10: substituição do dado ${values[replaceIndex]} por ${rerollValue}; maior mantido.</p>`:'';
-  await roll.toMessage({speaker:speaker(actor),flavor,content:`<section class="pluto-chat"><b>${escapeHTML(actor.name)}</b> · ${escapeHTML(flavor)}<p><strong>${success?'SUCESSO':'FALHA'}</strong> — maior dado ${top} / dificuldade ${difficulty}</p>${note}<small>10 no acerto não gera crítico.</small></section>`});
+  const shown=diceTape(values,'DADOS DO TESTE')+(rerollValue!==null?diceTape([rerollValue],'DADO EXCEDENTE'):'');
+  await roll.toMessage({speaker:speaker(actor),flavor,content:`<section class="pluto-chat" data-pluto-chat="teste"><b>${escapeHTML(actor.name)}</b> · ${escapeHTML(flavor)}<div class="pluto-zine-total ${success?'is-success':'is-failure'}">${success?'SUCESSO':'FALHA'} <span>${top} / ${difficulty}</span></div>${shown}${note}<small>10 no teste não gera crítico ou explosão.</small></section>`});
   return {highest:top,success,values,difficulty,wanted,count};
 }
 export async function rollExploding(formula,actor,meta={}){
@@ -52,7 +54,7 @@ export async function rollExploding(formula,actor,meta={}){
  const region=meta.region||'torso';
  const actorName=escapeHTML(actor?.name||'Operário');
  const extra=`<div class="pluto-apply-ui"><label>Região: <select class="pluto-damage-region">${REGION_KEYS.map(k=>`<option value="${k}" ${k===region?'selected':''}>${REGION_NAME[k]}</option>`).join('')}</select></label><button type="button" class="pluto-apply-damage" data-damage="${total}">Aplicar ao token selecionado (GM/prop.)</button></div>`;
- await roll.toMessage({speaker:actor?speaker(actor):{},flavor:`Dano · ${meta.weapon||'Teste'}`,content:`<section class="pluto-chat"><b>${actorName}</b> · ${escapeHTML(meta.weapon||'Dano explosivo')}<p>Dano: <strong>${total}</strong> (antes da proteção)</p>${extra}<small>D10 explodem apenas na rolagem de dano.</small></section>`});
+ await roll.toMessage({speaker:actor?speaker(actor):{},flavor:`Dano · ${meta.weapon||'Teste'}`,content:`<section class="pluto-chat" data-pluto-chat="dano"><b>${actorName}</b> · ${escapeHTML(meta.weapon||'Dano explosivo')}<div class="pluto-zine-total is-damage"><span>DANO</span> ${total} PV</div>${diceTape(roll,'DADOS DE DANO')}${explosionStamps(roll)}${extra}<small>D10 explodem exclusivamente em dano; total antes da proteção.</small></section>`});
  return {total,roll};
 }
 export function combatStatus(actor){

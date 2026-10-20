@@ -1,3 +1,5 @@
+import {decoratePlutoChat} from './chat-ui.mjs';
+import {registerPlutoDice} from './dice-theme.mjs';
 import {seedPlutoCompendia,getPlutoPack} from './compendia.mjs';
 import {PlutoActorModel,PlutoCommunityModel,PlutoItemModel} from './models.mjs';
 import {PlutoActor,PlutoItem} from './actor.mjs';
@@ -26,7 +28,7 @@ Hooks.once('init',()=>{
  ]];
 });
 Hooks.once('ready',async()=>{
-  game.plutofagia={versao:'0.9.2',organizarCombate:organizeAlternation,rolarTeste:rollPool,rolarDano:rollExploding,grid:GRID};
+  game.plutofagia={versao:game.system.version,organizarCombate:organizeAlternation,rolarTeste:rollPool,rolarDano:rollExploding,grid:GRID};
   document.addEventListener('click',chatApplyButton);
   // Cria quatro compêndios nativos por mundo; não apaga o catálogo mundial legado.
   if(game.user.isGM){
@@ -59,3 +61,8 @@ Hooks.on('createActor',async(actor)=>{
  if(actor.type==='npc'&&actor.system.faction==='sindicato'){u['system.faction']='corporacao';u['prototypeToken.disposition']=-1;}
  if(Object.keys(u).length)await actor.update(u);
 });
+
+// V13: elemento HTML nativo do chat (somente mensagens de Plutofagia).
+Hooks.on('renderChatMessageHTML',decoratePlutoChat);
+// Dice So Nice é opcional; falha de integração não deve impedir o Foundry.
+Hooks.once('diceSoNiceReady',(dice3d)=>{try{registerPlutoDice(dice3d);}catch(err){console.warn('[PLUTOFAGIA] Aparência 3D opcional indisponível:',err);}});

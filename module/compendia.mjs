@@ -1,3 +1,4 @@
+import {ITEM_ARTWORK,LEGACY_ARTWORK} from './artwork.mjs';
 /** Quatro compêndios mundiais nativos no Foundry 13, sem dependência de compilador. */
 export const COLLECTIONS = Object.freeze({
   armas:{name:'plutofagia-armas',label:'PLUTOFAGIA | Arsenal',types:['arma']},
@@ -30,6 +31,17 @@ export async function seedPlutoCompendia({fetchData=fetch}={}){
    if(pack.locked)await pack.configure({locked:false});
    const cleaned=fresh.map(e=>{const v=foundry.utils.deepClone(e);delete v._id;return v;});
    await Item.createDocuments(cleaned,{pack:pack.collection});
+  }
+  // Migração conservadora da iconografia: apenas os ícones-padrão são substituídos.
+  if(key==='armas'||key==='equipamentos'){
+   const docs=await pack.getDocuments();
+   const changed=docs.filter(doc=>ITEM_ARTWORK[doc.name]&&(!doc.img||LEGACY_ARTWORK.has(doc.img)));
+   if(changed.length){
+    if(pack.locked)await pack.configure({locked:false});
+    await Item.updateDocuments(changed.map(doc=>({_id:doc.id,img:ITEM_ARTWORK[doc.name]})),{pack:pack.collection});
+   }
+   summary[key]={added:fresh.length,iconsUpdated:changed.length,total:existing.size+fresh.length,pack:pack.collection};
+   continue;
   }
   // Atualiza a arte das cartas já distribuídas sem apagar efeitos ou mudanças feitas pelo Narrador.
   if(key==='cartas'){

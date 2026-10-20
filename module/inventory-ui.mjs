@@ -1,3 +1,4 @@
+import {getItemArtwork} from './artwork.mjs';
 /** Atualização de listas com DOM nativo: preserva formulário, aba ativa, foco e rolagem. */
 import {cardTone,CARD_TONES} from './cards.mjs';
 const descriptions={
@@ -37,6 +38,7 @@ export function patchItemLists(root,items){
     actions.append(actionButton('Mostrar','card-use',entry.id),actionButton('Editar','item-sheet',entry.id),actionButton('×','item-remove',entry.id));
     article.append(actions);fragment.append(article);continue;
    }
+   const pic=document.createElement('img');pic.className='pluto-item-icon';pic.src=getItemArtwork(entry);pic.alt='';pic.loading='lazy';article.append(pic);
    const title=document.createElement('b');title.textContent=entry.name;article.append(title);
    const desc=document.createElement('span');desc.textContent=descriptions[key](entry);article.append(desc);
    if(key==='armas'||key==='ataques'){

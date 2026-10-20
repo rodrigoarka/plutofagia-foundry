@@ -2,7 +2,7 @@
   {
     "name": "Tralha improvisada",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/49.svg",
     "system": {
       "description": "Objeto fantástico improvisado, perde utilidade após um acerto.",
       "category": "fantasia",
@@ -23,7 +23,7 @@
   {
     "name": "Bastão encantado",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/43.svg",
     "system": {
       "description": "Bastão mágico; com dano final de pelo menos 8, desloca um quadrado.",
       "category": "fantasia",
@@ -44,7 +44,7 @@
   {
     "name": "Ferramenta fantástica de impacto",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/14.svg",
     "system": {
       "description": "Ferramenta ficcional pesada de oficina.",
       "category": "fantasia",
@@ -65,7 +65,7 @@
   {
     "name": "Projetor arcano compacto",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/53.svg",
     "system": {
       "description": "Dispositivo fictício para cenas de ação.",
       "category": "fantasia",
@@ -86,7 +86,7 @@
   {
     "name": "Orbe de rajada",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/33.svg",
     "system": {
       "description": "Orbe da oficina clandestina.",
       "category": "fantasia",
@@ -107,7 +107,7 @@
   {
     "name": "Emissor fantástico de área",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/01.svg",
     "system": {
       "description": "Área central; adjacentes usam dano secundário.",
       "category": "fantasia",
@@ -128,7 +128,7 @@
   {
     "name": "Lança-raios cerimonial",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/25.svg",
     "system": {
       "description": "Conduz feixes mágicos inexistentes fora do jogo.",
       "category": "fantasia",
@@ -149,7 +149,7 @@
   {
     "name": "Instrumento mágico de longo alcance",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/24.svg",
     "system": {
       "description": "Instrumento fantástico; Mirar interage com cobertura de 25%.",
       "category": "fantasia",
@@ -170,7 +170,7 @@
   {
     "name": "Chave de oficina improvisada",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/56.svg",
     "system": {
       "description": "Objeto comum com papel ficcional improvisado.",
       "category": "fantasia",
@@ -191,7 +191,7 @@
   {
     "name": "Martelo de manutenção",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/36.svg",
     "system": {
       "description": "Ferramenta de cenário; dados totalmente abstratos.",
       "category": "fantasia",
@@ -212,7 +212,7 @@
   {
     "name": "Gambiarra goblin de molas",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/16.svg",
     "system": {
       "description": "Engenhoca ficcional cujos efeitos são negociados em mesa.",
       "category": "fantasia",
@@ -233,7 +233,7 @@
   {
     "name": "Corneta de Chiado Arcano",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/08.svg",
     "system": {
       "description": "Engenhoca goblin que produz distrações mágicas.",
       "category": "fantasia",
@@ -254,7 +254,7 @@
   {
     "name": "Cápsula de Luz de Rua",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/18.svg",
     "system": {
       "description": "Brilho fictício para interromper a visibilidade durante uma cena.",
       "category": "fantasia",
@@ -275,7 +275,7 @@
   {
     "name": "Escudo de panela de sindicato",
     "type": "arma",
-    "img": "icons/svg/sword.svg",
+    "img": "systems/plutofagia/assets/card-icons/31.svg",
     "system": {
       "description": "Peça clássica da barricada do bairro.",
       "category": "fantasia",
@@ -296,7 +296,7 @@
   {
     "name": "Capacete simples",
     "type": "protecao",
-    "img": "icons/svg/shield.svg",
+    "img": "systems/plutofagia/assets/card-icons/14.svg",
     "system": {
       "description": "Reduz 1 PV de dano na cabeça.",
       "category": "fantasia",
@@ -314,7 +314,7 @@
   {
     "name": "Colete leve",
     "type": "protecao",
-    "img": "icons/svg/shield.svg",
+    "img": "systems/plutofagia/assets/card-icons/35.svg",
     "system": {
       "description": "Reduz 1 PV de dano no tronco.",
       "category": "fantasia",
@@ -332,7 +332,7 @@
   {
     "name": "Colete reforçado",
     "type": "protecao",
-    "img": "icons/svg/shield.svg",
+    "img": "systems/plutofagia/assets/card-icons/30.svg",
     "system": {
       "description": "Reduz 2 PV de dano no tronco.",
       "category": "fantasia",
@@ -350,7 +350,7 @@
   {
     "name": "Braçadeira de trabalho",
     "type": "protecao",
-    "img": "icons/svg/shield.svg",
+    "img": "systems/plutofagia/assets/card-icons/23.svg",
     "system": {
       "description": "Proteção pontual de um braço.",
       "category": "fantasia",
@@ -368,7 +368,7 @@
   {
     "name": "Kit médico comunitário",
     "type": "equipamento",
-    "img": "icons/svg/item-bag.svg",
+    "img": "systems/plutofagia/assets/card-icons/59.svg",
     "system": {
       "description": "Três usos por missão, teste Técnica + Medicina dif.7; recupera 1D10 sem explosão.",
       "category": "fantasia",
@@ -383,7 +383,7 @@
   {
     "name": "Kit de ferramentas",
     "type": "equipamento",
-    "img": "icons/svg/item-bag.svg",
+    "img": "systems/plutofagia/assets/card-icons/56.svg",
     "system": {
       "description": "Apoia desafios de Mecânica e manutenção da comunidade.",
       "category": "fantasia",
@@ -398,7 +398,7 @@
   {
     "name": "Pacote de suprimentos",
     "type": "equipamento",
-    "img": "icons/svg/item-bag.svg",
+    "img": "systems/plutofagia/assets/card-icons/13.svg",
     "system": {
       "description": "Recurso narrativo de uma missão curta.",
       "category": "fantasia",
@@ -413,7 +413,7 @@
   {
     "name": "Mochila comunitária",
     "type": "equipamento",
-    "img": "icons/svg/item-bag.svg",
+    "img": "systems/plutofagia/assets/card-icons/32.svg",
     "system": {
       "description": "Aumenta capacidade de carga de 8 para 12 espaços.",
       "category": "fantasia",
@@ -428,7 +428,7 @@
   {
     "name": "Caderno de assembleia",
     "type": "equipamento",
-    "img": "icons/svg/item-bag.svg",
+    "img": "systems/plutofagia/assets/card-icons/15.svg",
     "system": {
       "description": "Registros de propostas e compromissos coletivos.",
       "category": "fantasia",
@@ -443,7 +443,7 @@
   {
     "name": "Pastel restaurador de Dona Graça",
     "type": "consumivel",
-    "img": "icons/svg/potion.svg",
+    "img": "systems/plutofagia/assets/card-icons/42.svg",
     "system": {
       "description": "Consumir conforme os intervalos de recuperação previstos pelo narrador; alimento comunitário fictício.",
       "category": "fantasia",
@@ -459,7 +459,7 @@
   {
     "name": "Caldo da Resistência",
     "type": "consumivel",
-    "img": "icons/svg/potion.svg",
+    "img": "systems/plutofagia/assets/card-icons/06.svg",
     "system": {
       "description": "Refeição restauradora do bairro; sem cura automática por descanso.",
       "category": "fantasia",
@@ -475,7 +475,7 @@
   {
     "name": "Marmita de mutirão",
     "type": "consumivel",
-    "img": "icons/svg/potion.svg",
+    "img": "systems/plutofagia/assets/card-icons/03.svg",
     "system": {
       "description": "Alimento coletivo: sua obtenção exige roleplay, vínculos e trabalho.",
       "category": "fantasia",

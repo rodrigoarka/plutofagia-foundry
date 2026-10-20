@@ -44,3 +44,7 @@ A pipeline passou nos testes automatizados. Isso não substitui o teste real da 
 - Equipamentos, proteções e consumíveis: 12 registros
 
 Total: **128** registros. A ficha permite arrastar itens e atualizar a lista por manipulação de DOM, preservando a aba aberta.
+
+## v0.9.5 — Boletim-zine e dados personalizados
+
+O chat de Plutofagia usa um boletim de papel envelhecido com títulos, carimbos de anarquia vermelhos por resultado 10 explodido **somente no dano**, e D10 2D pretos com Ⓐ no lugar da face 10. Há quebra automática de textos longos e responsividade para a coluna do chat. Os itens físicos do catálogo fictício recebem ícones SVG locais diferentes, sem apagar imagens personalizadas; os compêndios atualizam apenas imagens genéricas antigas. O conjunto 3D D10 preto/Ⓐ é **opcional**: com uma versão de Dice So Nice compatível com Foundry 13 ativada, escolha o preset `PLUTOFAGIA · D10 da Anarquia` e o tema `PLUTOFAGIA · Tinta Preta`. O chat 2D não depende desse módulo. Efeitos de dano e mecânicas permanecem inalterados.

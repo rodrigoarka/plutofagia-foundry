@@ -1,5 +1,6 @@
 import {getPlutoPack,COLLECTIONS,initialOfficeTechnique} from './compendia.mjs';
 import {patchItemLists,preserveSheetState,restoreSheetState} from './inventory-ui.mjs';
+import {getItemArtwork} from './artwork.mjs';
 import {cardTone,cardAtRoll,cardsForDraw,loadCardDeck,CARD_TONES} from './cards.mjs';
 import {ATTRS,SKILLS,OFFICES,REGION_KEYS,REGION_NAME,SIZE,ANATOMY,FACTIONS,clamp,absent,escapeHTML} from './config.mjs';
 import {rollPool,rollExploding,executeAttack,executeSkill,executeHeal,GRID,combatStatus,organizeAlternation,moveFacing,reaction,spendAction,resetAction} from './rules.mjs';
@@ -9,7 +10,7 @@ const warning=m=>ui.notifications.warn(m);
 const numOrString=(el)=>el.type==='checkbox'?el.checked:el.type==='number'?Number(el.value):el.value;
 function buildAttrRows(actor){return Object.entries(ATTRS).map(([key,label])=>({key,label,value:actor.system.attributes[key],pips:[1,2,3,4,5].map(v=>({n:v,on:actor.system.attributes[key]>=v,disabled:v===5 && actor.system.xp===0}))}));}
 function buildRegionRows(actor){return REGION_KEYS.map(key=>{const h=actor.system.regions[key];return {key,label:REGION_NAME[key],value:h.value,max:h.max,armor:h.armor,missing:absent(key,actor.system.anatomy)};});}
-const itemList=(actor,type)=>actor.items.filter(i=>i.type===type).map(i=>({id:i.id,name:i.name,img:i.img,effect:i.system.effect,activation:i.system.activation,category:i.system.category,cardTone:cardTone(i.system.category),cardLabel:CARD_TONES[cardTone(i.system.category)]?.label??'Não classificada',damage:i.system.damage,range:i.system.range,slots:i.system.slots,properties:i.system.properties,cost:i.system.cost,description:i.system.description,quantity:i.system.quantity,armor:i.system.armor,region:i.system.region,flags:i.flags.plutofagia||{}}));
+const itemList=(actor,type)=>actor.items.filter(i=>i.type===type).map(i=>({id:i.id,name:i.name,img:getItemArtwork(i),effect:i.system.effect,activation:i.system.activation,category:i.system.category,cardTone:cardTone(i.system.category),cardLabel:CARD_TONES[cardTone(i.system.category)]?.label??'Não classificada',damage:i.system.damage,range:i.system.range,slots:i.system.slots,properties:i.system.properties,cost:i.system.cost,description:i.system.description,quantity:i.system.quantity,armor:i.system.armor,region:i.system.region,flags:i.flags.plutofagia||{}}));
 export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
  /** Alterações locais de inventário não desmontam o DOM da ficha. */
  async render(...args){
