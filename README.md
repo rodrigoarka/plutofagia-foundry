@@ -1,38 +1,46 @@
-# PLUTOFAGIA — O Livro do Sindicato
+# PLUTOFAGIA no GitHub e Foundry VTT 13
 
-Sistema de RPG para Foundry VTT 13, build 348. **Versão 0.9.2**.
+Sistema: **PLUTOFAGIA — O Livro do Sindicato**. Publicação automática ativada no repositório `rodrigoarka/plutofagia-foundry`.
 
-## Instalação por URL
+## Links
 
-No Foundry, escolha **Game Systems → Install System** e cole:
+- Repositório: https://github.com/rodrigoarka/plutofagia-foundry
+- Release v0.9.2: https://github.com/rodrigoarka/plutofagia-foundry/releases/tag/v0.9.2
+- Download: https://github.com/rodrigoarka/plutofagia-foundry/releases/download/v0.9.2/plutofagia.zip
+- Manifesto de instalação: https://raw.githubusercontent.com/rodrigoarka/plutofagia-foundry/main/system.json
+- Pipeline: https://github.com/rodrigoarka/plutofagia-foundry/actions/workflows/release.yml
 
-```
-https://raw.githubusercontent.com/rodrigoarka/plutofagia-foundry/main/system.json
-```
+## Instalação
 
-O manifesto aponta para `https://github.com/rodrigoarka/plutofagia-foundry/releases/download/v0.9.2/plutofagia.zip`. A Release precisa estar publicada antes da atualização do manifesto `main`.
+1. No Foundry VTT 13, abra **Game Systems -> Install System**.
+2. Cole a URL do manifesto acima.
+3. Instale o sistema ou atualize a instalação existente.
+4. Faça backup do mundo e reinicie o Foundry antes de testar a versão nova.
+5. No mundo, entre como GM para criar/atualizar os quatro compêndios de mundo; a criação não deve apagar os registros existentes.
 
-## Novidades da 0.9.2
+## O que ficou automatizado
 
-- Quatro **compêndios nativos do mundo**, preparados automaticamente na primeira abertura por um GM: Arsenal, Técnicas, Cartas de Condição e Equipamentos/Proteções.
-- 68 itens do catálogo existente + **60 cartas transcritas do documento de cartas de Plutofagia** = 128 registros.
-- Suporte a arrastar um registro do compêndio para a ficha: o Item é incorporado ao Actor; Técnicas observam requisitos do Ofício, custo de XP e progressão.
-- Adicionar, excluir e arrastar itens **atualiza somente as listas de itens via DOM**, preservando aba ativa e campos digitados. O restante da ficha continua seguindo o fluxo do Foundry.
-- Botões na aba Bagagem abrem os compêndios e um seletor fornece alternativa ao arrastar.
-- Novo tipo `carta` na ficha, com ativação, duração e texto de efeito; exibição no chat sem aplicação automática de modificadores complexos.
+O repositório agora contém o código completo, os testes e a automação `.github/workflows/release.yml`.
 
-## Importante sobre os compêndios
+Para publicar a próxima versão:
 
-Os quatro compêndios são **mundiais** (`world.plutofagia-*`), e não bancos LevelDB distribuídos dentro do ZIP. A criação e a inserção inicial exigem a primeira abertura do mundo por um GM. Eles persistem naquele mundo, podem ser consultados na aba Compêndios e **não são apagados** quando o sistema é atualizado. Em outro mundo, serão criados novamente. O catálogo global anterior não é removido.
+1. Edite `system.json` para uma nova versão (por exemplo, `0.9.3`) e ajuste o campo `download` para `.../releases/download/v0.9.3/plutofagia.zip`.
+2. Envie suas alterações de código para a branch `main` (commit/push). Pode fazê-lo por integração GitHub conectada ao ChatGPT.
+3. O GitHub Actions verifica o manifesto, os itens, as cartas e o JavaScript, e executa `node --test tests/*.mjs`.
+4. Se tudo passar, cria automaticamente o ZIP na raiz apropriada e publica a Release. Não é necessário anexar ZIP manualmente.
+5. O Foundry recebe a versão nova pela mesma URL de manifesto.
 
-Se você modificar um item no compêndio, o instalador não o sobrescreve automaticamente. A cópia arrastada para a ficha é independente do catálogo.
+**Importante:** a publicação automática só cria nova Release se o número da versão mudar. Ela não substitui uma Release antiga já publicada.
 
-## Escopo e testes
+## Limitações de validação
 
-Jogos com tokens e grid quadrado, ataques e danos digitais, atributos, PV regionais, espécies livres tangíveis, regras e Ofícios de Plutofagia. Algumas escolhas de alvo, cobertura, cartas e manobras permanecem sob decisão do Narrador.
+A pipeline passou nos testes automatizados. Isso não substitui o teste real da interface e dos compêndios no Foundry 13.348. Para uso em campanha, recomenda-se uma cópia de teste do mundo.
 
-Checagem estática: `node --test tests/*.mjs`. **Não substitui teste no Foundry 13.348 real.** Antes de atualizar, faça backup do mundo, principalmente se já existem personagens em campanha.
+## Compêndios v0.9.2
 
-## Publicação pelo GitHub
+- Arsenal: 14 armas fictícias
+- Técnicas dos Ofícios: 42 registros
+- Cartas de condição: 60 cartas
+- Equipamentos, proteções e consumíveis: 12 registros
 
-A Release deve anexar um ZIP chamado `plutofagia.zip` com `system.json` na raiz. O workflow do repositório poderá importar o conteúdo desse ZIP para o código-fonte após a publicação da Release.
+Total: **128** registros. A ficha permite arrastar itens e atualizar a lista por manipulação de DOM, preservando a aba aberta.
