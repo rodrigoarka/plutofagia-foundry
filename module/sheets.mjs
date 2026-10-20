@@ -1,5 +1,6 @@
 import {getPlutoPack,COLLECTIONS,initialOfficeTechnique} from './compendia.mjs';
 import {patchItemLists,preserveSheetState,restoreSheetState} from './inventory-ui.mjs';
+import {cardTone,cardAtRoll,cardsForDraw,loadCardDeck,CARD_TONES} from './cards.mjs';
 import {ATTRS,SKILLS,OFFICES,REGION_KEYS,REGION_NAME,SIZE,ANATOMY,FACTIONS,clamp,absent,escapeHTML} from './config.mjs';
 import {rollPool,rollExploding,executeAttack,executeSkill,executeHeal,GRID,combatStatus,organizeAlternation,moveFacing,reaction,spendAction,resetAction} from './rules.mjs';
 const {HandlebarsApplicationMixin}=foundry.applications.api;
@@ -8,7 +9,7 @@ const warning=m=>ui.notifications.warn(m);
 const numOrString=(el)=>el.type==='checkbox'?el.checked:el.type==='number'?Number(el.value):el.value;
 function buildAttrRows(actor){return Object.entries(ATTRS).map(([key,label])=>({key,label,value:actor.system.attributes[key],pips:[1,2,3,4,5].map(v=>({n:v,on:actor.system.attributes[key]>=v,disabled:v===5 && actor.system.xp===0}))}));}
 function buildRegionRows(actor){return REGION_KEYS.map(key=>{const h=actor.system.regions[key];return {key,label:REGION_NAME[key],value:h.value,max:h.max,armor:h.armor,missing:absent(key,actor.system.anatomy)};});}
-const itemList=(actor,type)=>actor.items.filter(i=>i.type===type).map(i=>({id:i.id,name:i.name,img:i.img,effect:i.system.effect,activation:i.system.activation,damage:i.system.damage,range:i.system.range,slots:i.system.slots,properties:i.system.properties,cost:i.system.cost,description:i.system.description,quantity:i.system.quantity,armor:i.system.armor,region:i.system.region,flags:i.flags.plutofagia||{}}));
+const itemList=(actor,type)=>actor.items.filter(i=>i.type===type).map(i=>({id:i.id,name:i.name,img:i.img,effect:i.system.effect,activation:i.system.activation,category:i.system.category,cardTone:cardTone(i.system.category),cardLabel:CARD_TONES[cardTone(i.system.category)]?.label??'Não classificada',damage:i.system.damage,range:i.system.range,slots:i.system.slots,properties:i.system.properties,cost:i.system.cost,description:i.system.description,quantity:i.system.quantity,armor:i.system.armor,region:i.system.region,flags:i.flags.plutofagia||{}}));
 export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
  /** Alterações locais de inventário não desmontam o DOM da ficha. */
  async render(...args){
@@ -200,6 +201,35 @@ export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
     for(const tab of this.element.querySelectorAll('[data-page]'))tab.classList.toggle('active',tab.dataset.page==='combate');
     const cards=this.element.querySelector('[data-pluto-cards-panel]');
     if(cards){cards.open=true;cards.scrollIntoView({behavior:'smooth',block:'start'});}
+    return;
+  }
+  if(action==='card-draw'){
+    const choice=this.element.querySelector('[data-pluto-card-choice]')?.value??'todas';
+    const keep=this.element.querySelector('[data-pluto-card-keep]')?.checked===true;
+    if(keep&&!actor.isOwner){warning('Você precisa ter permissão para adicionar cartas à ficha.');return;}
+    const buttonBefore=button.disabled;
+    button.disabled=true;
+    try{
+      const deck=await loadCardDeck({getPack:()=>getPlutoPack('cartas')});
+      const pool=cardsForDraw(deck,choice);
+      if(!pool.length){warning('Não há cartas nessa categoria.');return;}
+      const roll=await (new Roll('1d'+pool.length)).evaluate();
+      const result=cardAtRoll(deck,choice,roll.total);
+      const card=result.card,system=card.system??{},tone=result.tone;
+      const label=choice==='todas'?'Todas as 60 cartas':CARD_TONES[choice]?.name??'Todas';
+      const content='<div class="pluto-draw-result" data-card-tone="'+tone+'">'+
+        '<div class="pluto-draw-title">CARTA SORTEADA · '+escapeHTML(label)+'</div>'+
+        '<div class="pluto-draw-card"><img alt="" src="'+escapeHTML(card.img||'icons/svg/book.svg')+'"/>'+
+        '<div><strong>'+escapeHTML(card.name)+'</strong><small>'+escapeHTML(CARD_TONES[tone]?.label??'Não classificada')+
+        ' · '+escapeHTML(system.activation||'Ativação narrativa')+'</small></div></div>'+
+        '<p>'+escapeHTML(system.effect||system.description||'Sem efeito descrito.')+'</p>'+
+        '<small>Resultado '+roll.total+' de '+result.count+'. A carta não aplica efeitos automaticamente.</small></div>';
+      await roll.toMessage({speaker:ChatMessage.getSpeaker({actor}),flavor:content});
+      if(keep){
+        if(card.documentName==='Item')await this._addFromDocument(card);
+        else await this._mutateItems(async()=>{const data=foundry.utils.deepClone(card);delete data._id;return actor.createEmbeddedDocuments('Item',[data]);});
+      }
+    }finally{button.disabled=buttonBefore;}
     return;
   }
   if(action==='card-use'){

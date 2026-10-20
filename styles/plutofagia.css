@@ -111,3 +111,31 @@
 .pluto-card-actions{grid-column:1/-1;display:flex;gap:5px;justify-content:flex-end;border-top:1px dashed #c7b69b;padding-top:7px}
 .pluto-card-actions button{font-size:11px;}
 @media(max-width:520px){.pluto-card-grid{grid-template-columns:1fr}.pluto-card-dossier>summary{flex-wrap:wrap}}
+
+/* Rótulos cromáticos das cartas. Tons leves preservam o papel e contrastes legíveis. */
+.pluto-card-entry[data-card-tone="favoravel"]{background:#e7f3e8;border-color:#7cac87;border-left:5px solid #287747;}
+.pluto-card-entry[data-card-tone="dubia"]{background:#fff3cc;border-color:#c4a150;border-left:5px solid #a87915;}
+.pluto-card-entry[data-card-tone="ruim"]{background:#f8e0dd;border-color:#ca918b;border-left:5px solid #af3b37;}
+.pluto-card-entry[data-card-tone="desconhecida"]{background:#edeae4;border-left:5px solid #777;}
+.pluto-card-label{align-self:flex-start;border:1px solid currentColor;padding:1px 5px;font:800 10px Arial,sans-serif;text-transform:uppercase;font-style:normal;letter-spacing:.4px;}
+.pluto-card-entry[data-card-tone="favoravel"] .pluto-card-label{color:#215e38;}
+.pluto-card-entry[data-card-tone="dubia"] .pluto-card-label{color:#755106;}
+.pluto-card-entry[data-card-tone="ruim"] .pluto-card-label{color:#922d28;}
+.pluto-draw-controls{border:1px solid #aa9982;padding:9px;margin:8px 0;background:#eee5d4;display:flex;flex-wrap:wrap;align-items:end;gap:8px;}
+.pluto-draw-controls>label:first-child{flex:1 1 190px;margin:0;}
+.pluto-draw-controls select{max-width:100%;min-width:175px;font-size:12px;}
+.pluto-draw-controls .pluto-draw-button{background:#8b2023!important;color:#fff7ed!important;border:1px solid #481316;font-weight:900;white-space:nowrap;}
+.pluto-draw-controls .pluto-draw-keep{flex-direction:row;align-items:center;gap:5px;margin:0;font-size:11px;}
+.pluto-draw-keep input{margin:0;}
+.pluto-draw-controls>small{flex-basis:100%;font:italic 11px Georgia,serif;color:#615448;}
+.pluto-draw-result{border-left:6px solid #82786d;padding:7px 10px;background:#f2eee6;color:#231d19;}
+.pluto-draw-result[data-card-tone="favoravel"]{border-color:#287747;background:#e7f3e8;}
+.pluto-draw-result[data-card-tone="dubia"]{border-color:#a87915;background:#fff3cc;}
+.pluto-draw-result[data-card-tone="ruim"]{border-color:#af3b37;background:#f8e0dd;}
+.pluto-draw-title{font:800 11px Arial,sans-serif;letter-spacing:.8px;margin-bottom:6px;}
+.pluto-draw-card{display:flex;align-items:center;gap:9px;}
+.pluto-draw-card img{width:42px;height:42px;padding:5px;background:#fff7ed;border:1px solid #ae9d86;}
+.pluto-draw-card strong{font-size:14px;display:block;}
+.pluto-draw-card small{display:block;font-size:11px;margin-top:2px;}
+.pluto-draw-result p{margin:7px 0;font-size:13px;}
+.pluto-draw-result>small{font-size:10px;color:#4e4842;}

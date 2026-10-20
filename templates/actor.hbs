@@ -72,11 +72,24 @@
       <summary><strong>08 / CARTAS DE CONDIÇÃO</strong><span data-pluto-card-count>{{cards.length}} carta(s) · clique para expandir ou recolher</span></summary>
       <div class="pluto-card-dossier-body">
         <div class="pluto-card-tools"><button type="button" data-action="compendium" data-pack="cartas">Abrir compêndio de cartas</button><small>Arraste cartas para a ficha. Elas são registros narrativos, não efeitos automáticos.</small></div>
+        <div class="pluto-draw-controls" aria-label="Sorteio de Cartas de Condição">
+          <label>Baralho para o sorteio
+            <select data-pluto-card-choice aria-label="Categoria do sorteio">
+              <option value="todas">Todas as cartas (60)</option>
+              <option value="favoravel">Favoráveis (20) · verdes</option>
+              <option value="dubia">Dúbias (20) · amarelas</option>
+              <option value="ruim">Ruins (20) · vermelhas</option>
+            </select>
+          </label>
+          <button type="button" data-action="card-draw" class="pluto-draw-button">🎲 Sortear carta</button>
+          <label class="pluto-draw-keep"><input type="checkbox" data-pluto-card-keep> Guardar a sorteada na ficha</label>
+          <small>O resultado e o dado aparecem no chat. Sorteios independentes: cartas podem se repetir.</small>
+        </div>
         <div class="pluto-card-dropzone" data-pluto-dropzone="cartas">SOLTE SUAS CARTAS AQUI</div>
         <div class="pluto-card-grid" data-pluto-collection="cartas">
-          {{#each cards}}<article class="pluto-card-entry" data-pluto-card="{{id}}">
+          {{#each cards}}<article class="pluto-card-entry" data-pluto-card="{{id}}" data-card-tone="{{cardTone}}">
             <img src="{{img}}" alt="" class="pluto-card-icon" loading="lazy">
-            <div class="pluto-card-copy"><strong>{{name}}</strong><small>{{description}}</small></div>
+            <div class="pluto-card-copy"><em class="pluto-card-label">{{cardLabel}}</em><strong>{{name}}</strong><small>{{effect}}</small></div>
             <div class="pluto-card-actions"><button type="button" data-action="card-use" data-id="{{id}}">Mostrar</button><button type="button" data-action="item-sheet" data-id="{{id}}">Editar</button><button type="button" data-action="item-remove" data-id="{{id}}" title="Remover carta">×</button></div>
           </article>{{/each}}
         </div>
