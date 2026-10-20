@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <title>Textura discreta de reboco branco envelhecido</title>
+  <defs>
+    <filter id="reboco" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="3" seed="13" stitchTiles="stitch" result="granulado"/>
+      <feColorMatrix in="granulado" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope=".22" intercept=".74"/>
+        <feFuncG type="linear" slope=".22" intercept=".74"/>
+        <feFuncB type="linear" slope=".22" intercept=".74"/>
+        <feFuncA type="linear" slope=".12"/>
+      </feComponentTransfer>
+    </filter>
+    <linearGradient id="luz" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".42"/>
+      <stop offset="54%" stop-color="#eeece8" stop-opacity=".09"/>
+      <stop offset="100%" stop-color="#dfded8" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" fill="#f8f8f5"/>
+  <rect width="480" height="480" filter="url(#reboco)"/>
+  <rect width="480" height="480" fill="url(#luz)"/>
+  <g fill="none" stroke="#8d8880" stroke-width=".65" opacity=".08">
+    <path d="M37 37l24 4m9 2l9-1M276 43l15 3m2 0l29-2M162 188l20-4m2 1l3 8M419 298l-21 4m-8 2l-4-2M32 363l15-4m17 2l5 3M276 445l19 3"/>
+    <path d="M123 90l8 17-2 8M348 132l-6 18 2 8M104 271l-4 8 6 8M420 409l-3 15"/>
+  </g>
+  <g fill="#bbb6ae" opacity=".06">
+    <ellipse cx="53" cy="212" rx="11" ry="4"/>
+    <ellipse cx="363" cy="351" rx="25" ry="7"/>
+    <ellipse cx="251" cy="33" rx="18" ry="6"/>
+  </g>
+</svg>

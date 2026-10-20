@@ -15,8 +15,8 @@ test('os quatro compêndios distribuem os registros do suplemento e as 60 cartas
 test('sistema registra o tipo carta, URLs de release e formato V13',()=>{
  const j=JSON.parse(fs.readFileSync(new URL('../system.json',import.meta.url)));
  assert.equal(j.documentTypes.Item.carta.constructor,Object);
- assert.equal(j.version,'0.9.5');
- assert.match(j.download,/\/v0\.9\.5\/plutofagia\.zip$/);
+ assert.equal(j.version,'0.9.6');
+ assert.match(j.download,/\/v0\.9\.6\/plutofagia\.zip$/);
 });
 test('catálogo por mundo é criado uma vez e não duplica na segunda abertura',async()=>{
  const packs=new Map();

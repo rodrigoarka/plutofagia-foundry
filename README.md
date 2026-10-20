@@ -48,3 +48,17 @@ Total: **128** registros. A ficha permite arrastar itens e atualizar a lista por
 ## v0.9.5 — Boletim-zine e dados personalizados
 
 O chat de Plutofagia usa um boletim de papel envelhecido com títulos, carimbos de anarquia vermelhos por resultado 10 explodido **somente no dano**, e D10 2D pretos com Ⓐ no lugar da face 10. Há quebra automática de textos longos e responsividade para a coluna do chat. Os itens físicos do catálogo fictício recebem ícones SVG locais diferentes, sem apagar imagens personalizadas; os compêndios atualizam apenas imagens genéricas antigas. O conjunto 3D D10 preto/Ⓐ é **opcional**: com uma versão de Dice So Nice compatível com Foundry 13 ativada, escolha o preset `PLUTOFAGIA · D10 da Anarquia` e o tema `PLUTOFAGIA · Tinta Preta`. O chat 2D não depende desse módulo. Efeitos de dano e mecânicas permanecem inalterados.
+
+## v0.9.6 — Aparência do usuário, preservada nas versões futuras
+
+**A separação do design está ativa:**
+
+- `styles/plutofagia.css`: estrutura e componentes oficiais do sistema.
+- **`styles/personalizacao.css`**: suas escolhas visuais, carregadas por último. **Não deverá ser sobrescrito sem autorização explícita do usuário.**
+- `assets/muro-velho.svg`: textura clara de reboco envelhecido utilizada na ficha.
+
+A versão inicial do arquivo de personalização deixa a **ficha branca com muro velho discreto** e desenha os **D10 do chat como círculos pretos**, com a face 10 Ⓐ vermelha. A forma do dado 3D (Dice So Nice) não muda: é apenas o formato exibido no chat.
+
+**Como editar:** abra [styles/personalizacao.css](styles/personalizacao.css) diretamente no GitHub e faça commit de suas alterações. As próximas atualizações do código devem manter esse arquivo exatamente como estiver no GitHub. As mudanças de CSS feitas no repositório **não entram automaticamente numa Release de versão já publicada**: para distribuí-las, crie uma nova versão em `system.json` e ajuste a URL `download`, permitindo ao GitHub Actions produzir novo ZIP.
+
+Leia também [AGENTS.md](AGENTS.md) para as regras de preservação em atualizações.
