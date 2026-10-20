@@ -1,8 +1,7 @@
-name: Publicar sistema Foundry
+name: Publicar a próxima versão do Foundry
+# Execute manualmente após sincronizar o código-fonte no repositório.
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
@@ -10,23 +9,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validar manifesto
+      - name: Validar fonte e manifesto
         run: |
           python3 - <<'PY'
-          import json, pathlib
-          m = json.loads(pathlib.Path('system.json').read_text())
-          assert m['id'] == 'plutofagia'
-          assert m['version'] == "${{ github.ref_name }}".removeprefix('v')
-          for p in m['esmodules'] + m['styles']:
-              assert pathlib.Path(p).is_file(), f'Arquivo ausente: {p}'
-          print('Manifesto e recursos essenciais OK')
+          import json,pathlib
+          m=json.loads(pathlib.Path('system.json').read_text())
+          assert m['id']=='plutofagia'
+          for path in m['esmodules']+m['styles']:
+              assert pathlib.Path(path).is_file(),path
+          print('Pronto para empacotar',m['version'])
           PY
-      - name: Empacotar sistema (arquivos na raiz do ZIP)
+          node --test tests/*.mjs
+      - name: Empacotar o sistema
         run: |
-          zip -r plutofagia.zip system.json module templates styles assets lang tests README.md LICENSE.txt -x '*.DS_Store'
-          unzip -l plutofagia.zip | head -35
-      - name: Publicar GitHub Release
+          zip -qr plutofagia.zip system.json module templates styles assets lang tests README.md LICENSE.txt
+      - name: Publicar nova Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${{ github.ref_name }}" plutofagia.zip system.json --title "Plutofagia ${{ github.ref_name }}" --notes "Sistema Plutofagia para Foundry VTT 13. Requer validação em instalação real." --verify-tag
+          VERSION="$(python3 -c "import json; print(json.load(open('system.json'))['version'])")"
+          TAG="v$VERSION"
+          gh release create "$TAG" plutofagia.zip system.json --target "${{ github.sha }}" --title "PLUTOFAGIA $TAG" --notes "Sistema Foundry VTT 13. Atualização disponível pelo manifesto."
