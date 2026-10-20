@@ -1,32 +1,128 @@
-name: Publicar a próxima versão do Foundry
-# Execute manualmente após sincronizar o código-fonte no repositório.
+name: PLUTOFAGIA - Validar e publicar no Foundry
+
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release.yml'
+      - '.release-bootstrap/**'
+      - 'system.json'
+      - 'module/**'
+      - 'templates/**'
+      - 'styles/**'
+      - 'assets/**'
+      - 'lang/**'
+      - 'tests/**'
   workflow_dispatch:
+
 permissions:
   contents: write
+
+concurrency:
+  group: plutofagia-foundry-publicacao
+  cancel-in-progress: false
+
 jobs:
-  release:
+  validar-publicar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Validar fonte e manifesto
-        run: |
-          python3 - <<'PY'
-          import json,pathlib
-          m=json.loads(pathlib.Path('system.json').read_text())
-          assert m['id']=='plutofagia'
-          for path in m['esmodules']+m['styles']:
-              assert pathlib.Path(path).is_file(),path
-          print('Pronto para empacotar',m['version'])
-          PY
-          node --test tests/*.mjs
-      - name: Empacotar o sistema
-        run: |
-          zip -qr plutofagia.zip system.json module templates styles assets lang tests README.md LICENSE.txt
-      - name: Publicar nova Release
+      - name: Buscar codigo no GitHub
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Montar fonte da versao 0.9.2 (executado so uma vez)
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
-          VERSION="$(python3 -c "import json; print(json.load(open('system.json'))['version'])")"
-          TAG="v$VERSION"
-          gh release create "$TAG" plutofagia.zip system.json --target "${{ github.sha }}" --title "PLUTOFAGIA $TAG" --notes "Sistema Foundry VTT 13. Atualização disponível pelo manifesto."
+          set -euo pipefail
+          if [[ -f .release-bootstrap/overlay-v0.9.2.zip && ! -f module/compendia.mjs ]]; then
+            echo 'Importando o sistema original 0.9.1 e aplicando a atualizacao 0.9.2...'
+            mkdir -p .release-temp/base .release-temp/extraido
+            gh release download v0.9.1 -p plutofagia.zip -D .release-temp/base
+            python3 - <<'PY'
+          import pathlib, zipfile, shutil
+          dest = pathlib.Path('.release-temp/extraido')
+          for archive in [pathlib.Path('.release-temp/base/plutofagia.zip'), pathlib.Path('.release-bootstrap/overlay-v0.9.2.zip')]:
+              with zipfile.ZipFile(archive) as z:
+                  for info in z.infolist():
+                      name = pathlib.PurePosixPath(info.filename)
+                      if name.is_absolute() or '..' in name.parts:
+                          raise SystemExit(f'Entrada invalida no ZIP: {info.filename}')
+                  z.extractall(dest)
+          for path in dest.rglob('*'):
+              if path.is_file():
+                  target = pathlib.Path('.') / path.relative_to(dest)
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(path, target)
+          print('Codigo completo incorporado ao workspace.')
+          PY
+            git add README.md LICENSE.txt system.json assets lang module styles templates tests
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'chore: importa codigo completo do sistema 0.9.2'
+            git push origin HEAD:main
+          fi
+
+      - name: Verificar manifesto, recursos e catalogos
+        id: versao
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, pathlib
+          m=json.loads(pathlib.Path('system.json').read_text(encoding='utf-8'))
+          assert m['id']=='plutofagia', 'Identificador incorreto'
+          ver=m['version']; tag='v'+ver
+          assert m['download'].endswith('/releases/download/'+tag+'/plutofagia.zip'), 'URL de download incorreta'
+          assert m['compatibility']['minimum']=='13', 'Versao minima incorreta'
+          for file in m['esmodules']+m['styles']+['templates/actor.hbs','module/compendia.mjs','module/inventory-ui.mjs','assets/catalog.json','assets/cartas.json','assets/logo.png']:
+              assert pathlib.Path(file).is_file(), 'Arquivo obrigatorio ausente: '+file
+          items=json.loads(pathlib.Path('assets/catalog.json').read_text(encoding='utf-8'))
+          cards=json.loads(pathlib.Path('assets/cartas.json').read_text(encoding='utf-8'))
+          assert len(items)==68 and len(cards)==60, f'Catalogo incompleto: {len(items)} itens e {len(cards)} cartas'
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as out:
+              out.write('tag='+tag+'\n')
+          print('Manifesto, '+str(len(items))+' itens, '+str(len(cards))+' cartas: OK. Versao '+tag)
+          PY
+
+      - name: Validar JavaScript e executar os testes
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in module/*.mjs; do node --check "$file"; done
+          node --test tests/*.mjs
+
+      - name: Montar ZIP distribuivel
+        shell: bash
+        run: |
+          set -euo pipefail
+          zip -qr plutofagia.zip system.json README.md LICENSE.txt module templates styles assets lang tests
+          python3 - <<'PY'
+          import zipfile,json
+          with zipfile.ZipFile('plutofagia.zip') as z:
+              assert 'system.json' in z.namelist(), 'Manifesto precisa estar na raiz do ZIP'
+              m=json.loads(z.read('system.json'))
+              assert m['id']=='plutofagia'
+              assert z.testzip() is None
+              print('ZIP distribuivel valido:',len(z.namelist()),'entradas')
+          PY
+
+      - name: Publicar automaticamente no GitHub Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.versao.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "::notice::Release $TAG ja existe; arquivos preservados, nenhuma sobregravacao."
+          else
+            gh release create "$TAG" plutofagia.zip system.json \
+              --target "$(git rev-parse HEAD)" \
+              --title "PLUTOFAGIA $TAG — O Livro do Sindicato" \
+              --notes 'Sistema Foundry VTT 13. Compendios de Armas, Tecnicas, Cartas e Equipamentos; arrastar para a ficha; atualizacao de inventario sem recarregar a ficha. Testes estaticos executados no GitHub Actions; use um mundo de teste antes de migrar sua campanha.'
+            echo "Release criada: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${TAG}"
+          fi
