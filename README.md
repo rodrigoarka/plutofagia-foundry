@@ -25,3 +25,17 @@ O **dano não é aplicado automaticamente no alvo**: o usuário com permissão e
 **A manobra “Tomar Refém” é uma abstração narrativa de regras de RPG, não um simulador realista.** O narrador decide limites, repercussão comunitária e cenas de negociação.
 
 **Bônus temporários de manobras e técnicas:** o chat anuncia efeitos, jogadores e GM devem acompanhar sua duração. A opção "marcar área" cria um círculo de jogo, sem resolver suas consequências automaticamente.
+
+
+## Atualização v0.9.2 — Compêndios e ficha sem recarregamento
+
+**Disponível para publicar:** o sistema v0.9.2 foi preparado como ZIP; a URL de instalação principal permanece em v0.9.1 até a nova Release ser publicada.
+
+- Quatro compêndios reais **no mundo**: Arsenal de itens fictícios, Técnicas de Ofícios, Cartas de Condição e Equipamentos/Proteções. Criados pelo GM na primeira abertura do mundo.
+- Catálogo com 68 itens existentes e 60 cartas do caderno original; 128 entradas.
+- Arrastar para a ficha ou adicionar pelo seletor; a aba e campos são preservados ao atualizar as listas por DOM.
+- Técnicas respeitam Ofício e gastos de XP; as cartas apresentam o texto no chat, sem impor efeitos automáticos não previstos.
+
+**Publicação v0.9.2:** crie a tag e Release `v0.9.2` anexando um arquivo exatamente chamado `plutofagia.zip` com `system.json` na raiz. Depois de clicar **Publish release**, o workflow [Sincronizar fonte da Release](.github/workflows/sync-release.yml) valida o pacote, roda os testes e envia os arquivos do ZIP à raiz do repositório, atualizando o manifesto. Ele preserva dados dos mundos e não remove os compêndios existentes. Faça backup antes da atualização.
+
+**Versões posteriores:** após a sincronização, o workflow [Publicar a próxima versão do Foundry](.github/workflows/release.yml) pode gerar novas Releases a partir do código-fonte via `workflow_dispatch`.
