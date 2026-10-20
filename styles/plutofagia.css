@@ -89,3 +89,25 @@
 .pluto-empty-collection{font:italic 12px Georgia,serif;color:#70665b;padding:6px 8px;border-bottom:1px dashed #b3a794;}
 [data-pluto-collection]{display:flex;flex-direction:column;gap:4px;}
 [data-pluto-collection] .pluto-item-row{margin-bottom:1px;}
+
+/* Cartas de Condição: mural expansível com ilustrações SVG locais (Supericons / Lucide). */
+.pluto-card-dossier{margin:12px 0;border:2px solid #241b19;background:#f4eddf;}
+.pluto-card-dossier>summary{list-style:none;cursor:pointer;background:#232020;color:#f9efdf;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.pluto-card-dossier>summary::-webkit-details-marker{display:none}
+.pluto-card-dossier>summary::before{content:"▾";color:#e3bb65;font-size:17px}
+.pluto-card-dossier:not([open])>summary::before{content:"▸"}
+.pluto-card-dossier>summary strong{font:900 17px Impact,'Arial Black',sans-serif;letter-spacing:.6px;color:#f7ede1;}
+.pluto-card-dossier>summary span{font:700 11px Georgia,serif;color:#d4c6b6;text-align:right}
+.pluto-card-dossier-body{padding:10px;}
+.pluto-card-tools{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:7px}
+.pluto-card-tools small{font:italic 11px Georgia,serif;color:#5b5149;}
+.pluto-card-dropzone{border:2px dashed #a72c31;background:#f7e9e0;color:#772125;text-align:center;padding:10px 8px;font-size:11px;font-weight:900;letter-spacing:1px;margin:8px 0}
+.pluto-card-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:9px!important;}
+.pluto-card-entry{display:grid;grid-template-columns:46px minmax(0,1fr);gap:8px;padding:9px;border:1px solid #c7b69b;border-left:4px solid #a5262b;background:#fcf7eb;min-width:0;box-shadow:1px 2px 0 rgba(32,23,14,.08);align-items:start;}
+.pluto-card-icon{width:46px;height:46px;padding:7px;border:1px solid #41302b;background:#e9decb;object-fit:contain;filter:contrast(1.3);}
+.pluto-card-copy{min-width:0;display:flex;flex-direction:column;gap:4px;}
+.pluto-card-copy strong{font:900 13px Georgia,serif;line-height:1.15;}
+.pluto-card-copy small{font:12px/1.35 Arial,sans-serif;color:#534d45;white-space:normal;overflow-wrap:anywhere;}
+.pluto-card-actions{grid-column:1/-1;display:flex;gap:5px;justify-content:flex-end;border-top:1px dashed #c7b69b;padding-top:7px}
+.pluto-card-actions button{font-size:11px;}
+@media(max-width:520px){.pluto-card-grid{grid-template-columns:1fr}.pluto-card-dossier>summary{flex-wrap:wrap}}

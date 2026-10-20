@@ -2,7 +2,7 @@
   {
     "name": "Ódio de Classe",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/01.svg",
     "system": {
       "description": "+1D10 no próximo ataque. Não concede outro ataque.",
       "effect": "+1D10 no próximo ataque. Não concede outro ataque.",
@@ -23,7 +23,7 @@
   {
     "name": "Café da Firma",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/02.svg",
     "system": {
       "description": "+2 quadrados em um deslocamento seu.",
       "effect": "+2 quadrados em um deslocamento seu.",
@@ -44,7 +44,7 @@
   {
     "name": "União Faz a Força",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/03.svg",
     "system": {
       "description": "+1D10 no próximo teste apoiado por outro personagem.",
       "effect": "+1D10 no próximo teste apoiado por outro personagem.",
@@ -65,7 +65,7 @@
   {
     "name": "Síndrome do Protagonista",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/04.svg",
     "system": {
       "description": "Repita 1 dado do teste de ataque que não mostre 10; mantenha o novo resultado.",
       "effect": "Repita 1 dado do teste de ataque que não mostre 10; mantenha o novo resultado.",
@@ -86,7 +86,7 @@
   {
     "name": "Feriado Surpresa",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/05.svg",
     "system": {
       "description": "Execute Guardar posição sem gastar ação; a proteção não acumula com outra Guarda.",
       "effect": "Execute Guardar posição sem gastar ação; a proteção não acumula com outra Guarda.",
@@ -107,7 +107,7 @@
   {
     "name": "Marmita da Vovó Orc",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/06.svg",
     "system": {
       "description": "Ignore uma penalidade de -1D10 por um teste.",
       "effect": "Ignore uma penalidade de -1D10 por um teste.",
@@ -128,7 +128,7 @@
   {
     "name": "Ponto Batido",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/07.svg",
     "system": {
       "description": "Mova até 2 quadrados sem gastar ação.",
       "effect": "Mova até 2 quadrados sem gastar ação.",
@@ -149,7 +149,7 @@
   {
     "name": "Greve Relâmpago",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/08.svg",
     "system": {
       "description": "Um inimigo adjacente sofre -1D10 no próximo teste; não perde ações.",
       "effect": "Um inimigo adjacente sofre -1D10 no próximo teste; não perde ações.",
@@ -170,7 +170,7 @@
   {
     "name": "Curso de Excel Avançado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/09.svg",
     "system": {
       "description": "+1D10 no próximo teste de Técnica.",
       "effect": "+1D10 no próximo teste de Técnica.",
@@ -191,7 +191,7 @@
   {
     "name": "Carisma de Assembleia",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/10.svg",
     "system": {
       "description": "+1D10 no próximo teste de Lábia.",
       "effect": "+1D10 no próximo teste de Lábia.",
@@ -212,7 +212,7 @@
   {
     "name": "Trabalho em Equipe",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/11.svg",
     "system": {
       "description": "Aliado a até 3 quadrados recebe +1D10 em próximo teste; não acumula com Ajudar.",
       "effect": "Aliado a até 3 quadrados recebe +1D10 em próximo teste; não acumula com Ajudar.",
@@ -233,7 +233,7 @@
   {
     "name": "Atestado Carimbado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/12.svg",
     "system": {
       "description": "Ignore -2 quadrados ou outro redutor de movimento em um deslocamento.",
       "effect": "Ignore -2 quadrados ou outro redutor de movimento em um deslocamento.",
@@ -254,7 +254,7 @@
   {
     "name": "Troco do Busão",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/13.svg",
     "system": {
       "description": "Após acertar seu ataque, mova 1 quadrado sem ação.",
       "effect": "Após acertar seu ataque, mova 1 quadrado sem ação.",
@@ -275,7 +275,7 @@
   {
     "name": "Capacete de Obras",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/14.svg",
     "system": {
       "description": "Reduza em 3 o próximo dano recebido na cabeça. Usa reação defensiva.",
       "effect": "Reduza em 3 o próximo dano recebido na cabeça. Usa reação defensiva.",
@@ -296,7 +296,7 @@
   {
     "name": "Manual Pirata",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/15.svg",
     "system": {
       "description": "+1D10 ao improvisar ferramenta ou dispositivo ficcional.",
       "effect": "+1D10 ao improvisar ferramenta ou dispositivo ficcional.",
@@ -317,7 +317,7 @@
   {
     "name": "Sorte do Terceirizado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/16.svg",
     "system": {
       "description": "+1 no maior resultado de teste (máximo 10); não gera 10 natural. Não acumula com rerrolagem excedente de 6D10: escolha um efeito.",
       "effect": "+1 no maior resultado de teste (máximo 10); não gera 10 natural. Não acumula com rerrolagem excedente de 6D10: escolha um efeito.",
@@ -338,7 +338,7 @@
   {
     "name": "Sindicato Presente",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/17.svg",
     "system": {
       "description": "Remova de um aliado uma condição com duração de 1 turno.",
       "effect": "Remova de um aliado uma condição com duração de 1 turno.",
@@ -359,7 +359,7 @@
   {
     "name": "Crachá VIP",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/18.svg",
     "system": {
       "description": "Ignore 1 ponto de bônus de Defesa concedido por cobertura ao próximo ataque.",
       "effect": "Ignore 1 ponto de bônus de Defesa concedido por cobertura ao próximo ataque.",
@@ -380,7 +380,7 @@
   {
     "name": "Descanso Remunerado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/19.svg",
     "system": {
       "description": "Ao realizar seu repouso protegido permitido, recupere +2 PV em uma região, sem remover condição persistente.",
       "effect": "Ao realizar seu repouso protegido permitido, recupere +2 PV em uma região, sem remover condição persistente.",
@@ -401,7 +401,7 @@
   {
     "name": "Plano B Improvável",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/20.svg",
     "system": {
       "description": "Após errar um teste, mova 2 quadrados sem ação.",
       "effect": "Após errar um teste, mova 2 quadrados sem ação.",
@@ -422,7 +422,7 @@
   {
     "name": "Reunião que Podia Ser E-mail",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/21.svg",
     "system": {
       "description": "Você não pode usar Mirar no próximo turno.",
       "effect": "Você não pode usar Mirar no próximo turno.",
@@ -443,7 +443,7 @@
   {
     "name": "Perna em Greve",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/22.svg",
     "system": {
       "description": "Seu deslocamento máximo passa a 1 quadrado enquanto durar a condição.",
       "effect": "Seu deslocamento máximo passa a 1 quadrado enquanto durar a condição.",
@@ -464,7 +464,7 @@
   {
     "name": "Braço Terceirizado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/23.svg",
     "system": {
       "description": "Não pode realizar ações que exijam o braço afetado.",
       "effect": "Não pode realizar ações que exijam o braço afetado.",
@@ -485,7 +485,7 @@
   {
     "name": "Olho no Mercado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/24.svg",
     "system": {
       "description": "-1D10 no próximo ataque localizado.",
       "effect": "-1D10 no próximo ataque localizado.",
@@ -506,7 +506,7 @@
   {
     "name": "Burnout Corporativo",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/25.svg",
     "system": {
       "description": "-1D10 em testes sociais até repouso.",
       "effect": "-1D10 em testes sociais até repouso.",
@@ -527,7 +527,7 @@
   {
     "name": "Cobrança Indevida",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/26.svg",
     "system": {
       "description": "Sua Defesa é reduzida em 1 até o início do próximo turno, mínimo 5.",
       "effect": "Sua Defesa é reduzida em 1 até o início do próximo turno, mínimo 5.",
@@ -548,7 +548,7 @@
   {
     "name": "Sapato Social Molhado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/27.svg",
     "system": {
       "description": "-2 quadrados no próximo deslocamento, mínimo 1.",
       "effect": "-2 quadrados no próximo deslocamento, mínimo 1.",
@@ -569,7 +569,7 @@
   {
     "name": "Síndrome do Estagiário",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/28.svg",
     "system": {
       "description": "-1D10 no próximo teste de Técnica.",
       "effect": "-1D10 no próximo teste de Técnica.",
@@ -590,7 +590,7 @@
   {
     "name": "Wi-Fi de Masmorra",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/29.svg",
     "system": {
       "description": "-1D10 ao usar dispositivos conectados.",
       "effect": "-1D10 ao usar dispositivos conectados.",
@@ -611,7 +611,7 @@
   {
     "name": "Processo Trabalhista",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/30.svg",
     "system": {
       "description": "Não recebe bônus positivos de Lábia.",
       "effect": "Não recebe bônus positivos de Lábia.",
@@ -632,7 +632,7 @@
   {
     "name": "Armadura Alugada",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/31.svg",
     "system": {
       "description": "Proteção do tronco sofre -1, mínimo 0.",
       "effect": "Proteção do tronco sofre -1, mínimo 0.",
@@ -653,7 +653,7 @@
   {
     "name": "Atraso no Vale-Transporte",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/32.svg",
     "system": {
       "description": "-2 quadrados no primeiro deslocamento do próximo turno, mínimo 1.",
       "effect": "-2 quadrados no primeiro deslocamento do próximo turno, mínimo 1.",
@@ -674,7 +674,7 @@
   {
     "name": "Tremedeira",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/33.svg",
     "system": {
       "description": "-1D10 no próximo ataque à distância.",
       "effect": "-1D10 no próximo ataque à distância.",
@@ -695,7 +695,7 @@
   {
     "name": "Medo de Feedback",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/34.svg",
     "system": {
       "description": "-1D10 no próximo teste apoiado ou de Articulação.",
       "effect": "-1D10 no próximo teste apoiado ou de Articulação.",
@@ -716,7 +716,7 @@
   {
     "name": "Colega Puxa-Saco",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/35.svg",
     "system": {
       "description": "Próximo bônus de dado recebido vale 0; outros efeitos mantidos.",
       "effect": "Próximo bônus de dado recebido vale 0; outros efeitos mantidos.",
@@ -737,7 +737,7 @@
   {
     "name": "Botas de Concreto Burocrático",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/36.svg",
     "system": {
       "description": "Máximo de 3 quadrados por ação Mover.",
       "effect": "Máximo de 3 quadrados por ação Mover.",
@@ -758,7 +758,7 @@
   {
     "name": "Fora de Sintonia",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/37.svg",
     "system": {
       "description": "-2D10 em testes de Agilidade, Técnica e ataques que exijam coordenação; nenhuma vantagem de estados dúbios permanece.",
       "effect": "-2D10 em testes de Agilidade, Técnica e ataques que exijam coordenação; nenhuma vantagem de estados dúbios permanece.",
@@ -779,7 +779,7 @@
   {
     "name": "Maldição do Contracheque",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/38.svg",
     "system": {
       "description": "Descarte a próxima carta favorável que receber.",
       "effect": "Descarte a próxima carta favorável que receber.",
@@ -800,7 +800,7 @@
   {
     "name": "Lombar do Proletariado",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/39.svg",
     "system": {
       "description": "-1D10 em testes de Brutalidade.",
       "effect": "-1D10 em testes de Brutalidade.",
@@ -821,7 +821,7 @@
   {
     "name": "Cláusula Miúda",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/40.svg",
     "system": {
       "description": "Na próxima técnica de Ofício: -1D10 no teste; sem teste, reduza alcance em 1 quadrado, mínimo 1.",
       "effect": "Na próxima técnica de Ofício: -1D10 no teste; sem teste, reduza alcance em 1 quadrado, mínimo 1.",
@@ -842,7 +842,7 @@
   {
     "name": "Hora Extra Não Remunerada",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/41.svg",
     "system": {
       "description": "Ganhe 1 ação agora (máximo 3); sua próxima ação não ofensiva na missão exige gastar 1 ação adicional. Custo fica pendente.",
       "effect": "Ganhe 1 ação agora (máximo 3); sua próxima ação não ofensiva na missão exige gastar 1 ação adicional. Custo fica pendente.",
@@ -863,7 +863,7 @@
   {
     "name": "Café com Refrigerante",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/42.svg",
     "system": {
       "description": "+2 quadrados ao mover agora; -1D10 no próximo teste de ataque à distância na missão.",
       "effect": "+2 quadrados ao mover agora; -1D10 no próximo teste de ataque à distância na missão.",
@@ -884,7 +884,7 @@
   {
     "name": "Puxadinho Arcano",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/43.svg",
     "system": {
       "description": "+1D10 em um teste de Técnica; depois receba Wi-Fi de Masmorra por 1 cena.",
       "effect": "+1D10 em um teste de Técnica; depois receba Wi-Fi de Masmorra por 1 cena.",
@@ -905,7 +905,7 @@
   {
     "name": "Discurso de Improviso",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/44.svg",
     "system": {
       "description": "+1D10 em Lábia agora; seu próximo teste de Técnica na missão sofre -1D10.",
       "effect": "+1D10 em Lábia agora; seu próximo teste de Técnica na missão sofre -1D10.",
@@ -926,7 +926,7 @@
   {
     "name": "Escudo de Porta",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/45.svg",
     "system": {
       "description": "Reduza 5 do próximo dano; -2 quadrados no próximo deslocamento da missão (mínimo 1).",
       "effect": "Reduza 5 do próximo dano; -2 quadrados no próximo deslocamento da missão (mínimo 1).",
@@ -947,7 +947,7 @@
   {
     "name": "Fúria do Holerite",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/46.svg",
     "system": {
       "description": "+1D10 no próximo teste de Brutalidade; -1D10 no próximo de Lábia na missão.",
       "effect": "+1D10 no próximo teste de Brutalidade; -1D10 no próximo de Lábia na missão.",
@@ -968,7 +968,7 @@
   {
     "name": "Promoção Suspeita",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/47.svg",
     "system": {
       "description": "Descarte imediatamente 1 favorável que possua; então ganhe 1 ação agora (máximo 3; 1 ataque/turno).",
       "effect": "Descarte imediatamente 1 favorável que possua; então ganhe 1 ação agora (máximo 3; 1 ataque/turno).",
@@ -989,7 +989,7 @@
   {
     "name": "Atalho do Goblin",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/48.svg",
     "system": {
       "description": "Mova 3 quadrados extras neste deslocamento; perca todos os benefícios de cobertura até seu próximo turno.",
       "effect": "Mova 3 quadrados extras neste deslocamento; perca todos os benefícios de cobertura até seu próximo turno.",
@@ -1010,7 +1010,7 @@
   {
     "name": "Armadura de Papelada",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/49.svg",
     "system": {
       "description": "Reduza 4 do próximo dano; -1D10 em Agilidade no seu próximo teste na missão.",
       "effect": "Reduza 4 do próximo dano; -1D10 em Agilidade no seu próximo teste na missão.",
@@ -1031,7 +1031,7 @@
   {
     "name": "Motivação Tóxica",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/50.svg",
     "system": {
       "description": "+1D10 ao atacar agora; receba Burnout Corporativo após a cena.",
       "effect": "+1D10 ao atacar agora; receba Burnout Corporativo após a cena.",
@@ -1052,7 +1052,7 @@
   {
     "name": "Coragem de Boteco",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/51.svg",
     "system": {
       "description": "1 vez na cena, +1D10 para resistir a Intimidação; enquanto durar, -1D10 em Agilidade e Técnica. Não oferece bônus ofensivo.",
       "effect": "1 vez na cena, +1D10 para resistir a Intimidação; enquanto durar, -1D10 em Agilidade e Técnica. Não oferece bônus ofensivo.",
@@ -1073,7 +1073,7 @@
   {
     "name": "Corrida do Boleto",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/52.svg",
     "system": {
       "description": "Mova 4 quadrados adicionais; não pode Mirar neste turno ou no próximo.",
       "effect": "Mova 4 quadrados adicionais; não pode Mirar neste turno ou no próximo.",
@@ -1094,7 +1094,7 @@
   {
     "name": "O Universo Está Falando Comigo",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/53.svg",
     "system": {
       "description": "1 vez na cena, +1D10 ao interpretar pistas de fenômeno mágico simbólico; -1D10 em Agilidade, Técnica e ataques. Não revela verdades automaticamente.",
       "effect": "1 vez na cena, +1D10 ao interpretar pistas de fenômeno mágico simbólico; -1D10 em Agilidade, Técnica e ataques. Não revela verdades automaticamente.",
@@ -1115,7 +1115,7 @@
   {
     "name": "Greve de Um Homem Só",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/54.svg",
     "system": {
       "description": "Inimigo adjacente recebe -1D10 em seu próximo teste; seu próximo Mover tem -2 quadrados (mínimo 1).",
       "effect": "Inimigo adjacente recebe -1D10 em seu próximo teste; seu próximo Mover tem -2 quadrados (mínimo 1).",
@@ -1136,7 +1136,7 @@
   {
     "name": "Contrato de Risco",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/55.svg",
     "system": {
       "description": "+1D10 no próximo ataque; depois recebe 2 PV de dano no tronco, ignorando proteção.",
       "effect": "+1D10 no próximo ataque; depois recebe 2 PV de dano no tronco, ignorando proteção.",
@@ -1157,7 +1157,7 @@
   {
     "name": "Hack do Pirata",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/56.svg",
     "system": {
       "description": "Desligue uma câmera ou alarme acessível por 1 rodada; aumente em 1 a pressão/alarme da cena se houver.",
       "effect": "Desligue uma câmera ou alarme acessível por 1 rodada; aumente em 1 a pressão/alarme da cena se houver.",
@@ -1178,7 +1178,7 @@
   {
     "name": "Elogio do Chefe",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/57.svg",
     "system": {
       "description": "Descarte agora outra carta favorável; então ganhe +1D10 no próximo teste.",
       "effect": "Descarte agora outra carta favorável; então ganhe +1D10 no próximo teste.",
@@ -1199,7 +1199,7 @@
   {
     "name": "Bota-Fora Revolucionário",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/58.svg",
     "system": {
       "description": "Empurre um alvo adjacente 2 quadrados se houver espaço; recue 1 quadrado obrigatoriamente.",
       "effect": "Empurre um alvo adjacente 2 quadrados se houver espaço; recue 1 quadrado obrigatoriamente.",
@@ -1220,7 +1220,7 @@
   {
     "name": "Milagre do Plano Básico",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/59.svg",
     "system": {
       "description": "Recupere 3 PV de uma região; receba Cobrança Indevida até o próximo turno.",
       "effect": "Recupere 3 PV de uma região; receba Cobrança Indevida até o próximo turno.",
@@ -1241,7 +1241,7 @@
   {
     "name": "Manual de Crise",
     "type": "carta",
-    "img": "icons/svg/book.svg",
+    "img": "systems/plutofagia/assets/card-icons/60.svg",
     "system": {
       "description": "Gaste 1 ação agora para remover uma condição desfavorável temporária de 1 cena ou menos.",
       "effect": "Gaste 1 ação agora para remover uma condição desfavorável temporária de 1 cena ou menos.",

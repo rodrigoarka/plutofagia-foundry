@@ -31,7 +31,19 @@ export async function seedPlutoCompendia({fetchData=fetch}={}){
    const cleaned=fresh.map(e=>{const v=foundry.utils.deepClone(e);delete v._id;return v;});
    await Item.createDocuments(cleaned,{pack:pack.collection});
   }
-  summary[key]={added:fresh.length,total:existing.size+fresh.length,pack:pack.collection};
+  // Atualiza a arte das cartas já distribuídas sem apagar efeitos ou mudanças feitas pelo Narrador.
+  if(key==='cartas'){
+   const images=new Map(baseCards.map(entry=>[entry.name,entry.img]));
+   const docs=await pack.getDocuments();
+   const obsolete=docs.filter(entry=>images.has(entry.name)&&(!entry.img || entry.img==='icons/svg/book.svg'));
+   if(obsolete.length){
+    if(pack.locked)await pack.configure({locked:false});
+    await Item.updateDocuments(obsolete.map(entry=>({_id:entry.id,img:images.get(entry.name)})),{pack:pack.collection});
+   }
+   summary[key]={added:fresh.length,iconsUpdated:obsolete.length,total:existing.size+fresh.length,pack:pack.collection};
+  }else{
+   summary[key]={added:fresh.length,total:existing.size+fresh.length,pack:pack.collection};
+  }
  }
  return summary;
 }

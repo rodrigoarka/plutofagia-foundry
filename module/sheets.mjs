@@ -8,7 +8,7 @@ const warning=m=>ui.notifications.warn(m);
 const numOrString=(el)=>el.type==='checkbox'?el.checked:el.type==='number'?Number(el.value):el.value;
 function buildAttrRows(actor){return Object.entries(ATTRS).map(([key,label])=>({key,label,value:actor.system.attributes[key],pips:[1,2,3,4,5].map(v=>({n:v,on:actor.system.attributes[key]>=v,disabled:v===5 && actor.system.xp===0}))}));}
 function buildRegionRows(actor){return REGION_KEYS.map(key=>{const h=actor.system.regions[key];return {key,label:REGION_NAME[key],value:h.value,max:h.max,armor:h.armor,missing:absent(key,actor.system.anatomy)};});}
-const itemList=(actor,type)=>actor.items.filter(i=>i.type===type).map(i=>({id:i.id,name:i.name,img:i.img,damage:i.system.damage,range:i.system.range,slots:i.system.slots,properties:i.system.properties,cost:i.system.cost,description:i.system.description,quantity:i.system.quantity,armor:i.system.armor,region:i.system.region,flags:i.flags.plutofagia||{}}));
+const itemList=(actor,type)=>actor.items.filter(i=>i.type===type).map(i=>({id:i.id,name:i.name,img:i.img,effect:i.system.effect,activation:i.system.activation,damage:i.system.damage,range:i.system.range,slots:i.system.slots,properties:i.system.properties,cost:i.system.cost,description:i.system.description,quantity:i.system.quantity,armor:i.system.armor,region:i.system.region,flags:i.flags.plutofagia||{}}));
 export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
  /** Alterações locais de inventário não desmontam o DOM da ficha. */
  async render(...args){
@@ -193,6 +193,13 @@ export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
        ok:{label:'Adicionar à ficha',callback:(event,button,dialog)=>dialog.element.querySelector('select[name=item]')?.value}});
       if(id){const doc=await p.getDocument(id);await this._addFromDocument(doc);}
     }
+    return;
+  }
+  if(action==='go-cards'){
+    for(const panel of this.element.querySelectorAll('[data-tab-panel]'))panel.hidden=panel.dataset.tabPanel!=='combate';
+    for(const tab of this.element.querySelectorAll('[data-page]'))tab.classList.toggle('active',tab.dataset.page==='combate');
+    const cards=this.element.querySelector('[data-pluto-cards-panel]');
+    if(cards){cards.open=true;cards.scrollIntoView({behavior:'smooth',block:'start'});}
     return;
   }
   if(action==='card-use'){

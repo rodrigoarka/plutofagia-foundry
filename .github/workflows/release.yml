@@ -83,6 +83,7 @@ jobs:
           items=json.loads(pathlib.Path('assets/catalog.json').read_text(encoding='utf-8'))
           cards=json.loads(pathlib.Path('assets/cartas.json').read_text(encoding='utf-8'))
           assert len(items)==68 and len(cards)==60, f'Catalogo incompleto: {len(items)} itens e {len(cards)} cartas'
+          assert all((pathlib.Path('assets/card-icons')/f'{n:02d}.svg').exists() for n in range(1,61)), 'Icones faltando'
           with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as out:
               out.write('tag='+tag+'\n')
           print('Manifesto, '+str(len(items))+' itens, '+str(len(cards))+' cartas: OK. Versao '+tag)
