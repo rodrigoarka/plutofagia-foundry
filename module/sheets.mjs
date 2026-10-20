@@ -1,3 +1,5 @@
+import {getPlutoPack,COLLECTIONS,initialOfficeTechnique} from './compendia.mjs';
+import {patchItemLists,preserveSheetState,restoreSheetState} from './inventory-ui.mjs';
 import {ATTRS,SKILLS,OFFICES,REGION_KEYS,REGION_NAME,SIZE,ANATOMY,FACTIONS,clamp,absent,escapeHTML} from './config.mjs';
 import {rollPool,rollExploding,executeAttack,executeSkill,executeHeal,GRID,combatStatus,organizeAlternation,moveFacing,reaction,spendAction,resetAction} from './rules.mjs';
 const {HandlebarsApplicationMixin}=foundry.applications.api;
@@ -8,6 +10,48 @@ function buildAttrRows(actor){return Object.entries(ATTRS).map(([key,label])=>({
 function buildRegionRows(actor){return REGION_KEYS.map(key=>{const h=actor.system.regions[key];return {key,label:REGION_NAME[key],value:h.value,max:h.max,armor:h.armor,missing:absent(key,actor.system.anatomy)};});}
 const itemList=(actor,type)=>actor.items.filter(i=>i.type===type).map(i=>({id:i.id,name:i.name,img:i.img,damage:i.system.damage,range:i.system.range,slots:i.system.slots,properties:i.system.properties,cost:i.system.cost,description:i.system.description,quantity:i.system.quantity,armor:i.system.armor,region:i.system.region,flags:i.flags.plutofagia||{}}));
 export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
+ /** Alterações locais de inventário não desmontam o DOM da ficha. */
+ async render(...args){
+  if(this._patchingItems && this.rendered){this._patchItemPanels();return this;}
+  if(this.rendered)this._savedState=preserveSheetState(this.element);
+  return super.render(...args);
+ }
+ _patchItemPanels(){return patchItemLists(this.element,this.actor.items);}
+ async _mutateItems(callback){
+  this._patchingItems=true;
+  try{return await callback();}
+  finally{
+   this._patchItemPanels();
+   const xp=this.element?.querySelector('[data-field="system.xp"]');if(xp)xp.value=String(this.actor.system.xp);
+   const spent=this.element?.querySelector('[data-field="system.xpSpent"]');if(spent)spent.value=String(this.actor.system.xpSpent);
+   this._patchingItems=false;
+  }
+ }
+ async _addFromDocument(item){
+  if(!this.actor.isOwner || !item || item.documentName!=='Item')return null;
+  if(!['arma','tecnica','protecao','consumivel','equipamento','carta'].includes(item.type)){
+   warning('Este tipo de registro não entra no inventário de Plutofagia.');return null;
+  }
+  const a=this.actor;
+  if(item.type==='tecnica'){
+   if(item.system.officio && item.system.officio!==a.system.office){warning('Técnica de outro Ofício.');return null;}
+   if(a.items.some(i=>i.type==='tecnica'&&i.name===item.name)) {warning('Você já possui esta técnica.');return null;}
+   if(item.system.level==='avancada'&&a.items.filter(i=>i.type==='tecnica'&&i.system.level==='basica').length<2){warning('Exige duas técnicas básicas para aprender avançada.');return null;}
+   const price=item.system.level==='basica'?6:item.system.level==='avancada'?9:0;
+   if(price>a.system.xp){warning(`XP insuficiente: ${price} necessário.`);return null;}
+   return this._mutateItems(async()=>{
+    const data=item.toObject();delete data._id;
+    const created=await a.createEmbeddedDocuments('Item',[data]);
+    if(price)await a.update({'system.xp':a.system.xp-price,'system.xpSpent':a.system.xpSpent+price});
+    return created?.[0];
+   });
+  }
+  return this._mutateItems(async()=>{const data=item.toObject();delete data._id;const result=await a.createEmbeddedDocuments('Item',[data]);return result?.[0];});
+ }
+ async _onDropItem(event,item){
+  event.preventDefault();return this._addFromDocument(item);
+ }
+
  static DEFAULT_OPTIONS={
   classes:['plutofagia','pluto-actor'],window:{title:'O Caderno do Operário',resizable:true},
   position:{width:940,height:760},form:{closeOnSubmit:false,submitOnChange:false}
@@ -25,18 +69,24 @@ export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
   aPoints:sum,aRemaining:12-sum,trained,remainingSkills:3-trained,
   area:sys.defense.value,move:sys.movement.value,status:combatStatus(actor),
   weapons:itemList(actor,'arma'),protections:itemList(actor,'protecao'),techniques:itemList(actor,'tecnica'),
-  consumables:itemList(actor,'consumivel'),equipment:itemList(actor,'equipamento'),
+  consumables:itemList(actor,'consumivel'),equipment:itemList(actor,'equipamento'),cards:itemList(actor,'carta'),
   canEdit:this.isEditable,gm:game.user.isGM,
   tabs:[{id:'pessoa',label:'Pessoa'},{id:'combate',label:'Combate'},{id:'bagagem',label:'Bagagem'},{id:'revolucao',label:'Revolução'}]};
  }
  async _onRender(context,options){
   await super._onRender(context,options);
   const el=this.element;
+  restoreSheetState(el,this._savedState);
+  el.addEventListener('click',(event)=>{
+    const btn=event.target.closest('[data-pluto-collection] [data-action]');
+    if(btn)this._act(event,btn).catch(err=>{console.error(err);warning(err.message)});
+  });
+
   el.querySelectorAll('[data-page]').forEach(button=>button.addEventListener('click',()=>{
    for(const t of el.querySelectorAll('[data-tab-panel]'))t.hidden=t.dataset.tabPanel!==button.dataset.page;
    for(const b of el.querySelectorAll('[data-page]'))b.classList.toggle('active',b===button);
   }));
-  el.querySelectorAll('[data-action]').forEach(button=>button.addEventListener('click',(event)=>this._act(event,button).catch(err=>{console.error(err);warning(err.message)})));
+  el.querySelectorAll('[data-action]:not([data-pluto-collection] [data-action])').forEach(button=>button.addEventListener('click',(event)=>this._act(event,button).catch(err=>{console.error(err);warning(err.message)})));
   el.querySelectorAll('[data-field]').forEach(input=>input.addEventListener('change',(event)=>this._change(event,input).catch(err=>{console.error(err);warning(err.message)})));
  }
  async _change(_event,input){
@@ -59,11 +109,11 @@ export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
   }
   await this.actor.update({[path]:value});
   if(path==='system.office'&&value){
-    const seed=game.items.find(i=>i.type==='tecnica'&&i.system.officio===value&&i.system.level==='inicial');
+    const seed=await initialOfficeTechnique(value);
     const obsolete=this.actor.items.filter(i=>i.type==='tecnica'&&i.system.level==='inicial'&&i.system.officio!==value);
-    if(obsolete.length)await this.actor.deleteEmbeddedDocuments('Item',obsolete.map(i=>i.id));
+    if(obsolete.length)await this._mutateItems(()=>this.actor.deleteEmbeddedDocuments('Item',obsolete.map(i=>i.id)));
     if(seed&&!this.actor.items.some(i=>i.type==='tecnica'&&i.name===seed.name)){
-      const data=seed.toObject();delete data._id;await this.actor.createEmbeddedDocuments('Item',[data]);
+      await this._addFromDocument(seed);
     }
   }
   if(path.startsWith('system.conditions.') && ['suprimido','contido','refem'].includes(path.split('.').pop())){
@@ -111,34 +161,44 @@ export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
    await executeHeal(actor,selected,region,true);return;
   }
   if(action==='item-sheet'){actor.items.get(button.dataset.id)?.sheet?.render(true);return;}
-  if(action==='item-remove'){if(!actor.isOwner)return;await actor.deleteEmbeddedDocuments('Item',[button.dataset.id]);return;}
+  if(action==='item-remove'){if(!actor.isOwner)return;await this._mutateItems(()=>actor.deleteEmbeddedDocuments('Item',[button.dataset.id]));return;}
   if(action==='item-create'){
    if(!actor.isOwner)return;
    const type=button.dataset.kind||'equipamento';
-   await actor.createEmbeddedDocuments('Item',[{name:'Novo registro',type,img:'icons/svg/item-bag.svg'}]);return;
+   await this._mutateItems(()=>actor.createEmbeddedDocuments('Item',[{name:'Novo registro',type,img:'icons/svg/item-bag.svg'}]));return;
+  }
+  if(action==='compendium'){
+    const key=button.dataset.pack;
+    const pack=getPlutoPack(key);
+    if(!pack){warning('Compêndio ainda não preparado pelo GM.');return;}
+    try{
+      const App=foundry.applications.sidebar.apps.Compendium;
+      const window=new App({collection:pack});await window.render({force:true});
+    }catch(err){console.warn('Plutofagia: painel do compêndio',err);ui.sidebar?.activateTab?.('compendium');ui.notifications.info(`Abra ${pack.title} na aba Compêndios.`);}
+    return;
   }
   if(action==='catalog'){
-   const items=game.items.filter(i=>i.getFlag('plutofagia','catalogItem'));
-   if(!items.length){warning('O catálogo ainda não foi carregado pelo GM.');return;}
-   const rows=items.map(i=>`<option value="${i.id}">${escapeHTML(i.name)} [${i.type}]</option>`).join('');
-   const result=await foundry.applications.api.DialogV2.prompt({window:{title:'Catálogo coletivo'},content:`<label>Escolha um item do catálogo:<select name="item">${rows}</select></label>`,ok:{label:'Adicionar à ficha',callback:(event,button,dialog)=>dialog.element.querySelector('select[name=item]')?.value}});
-   if(result){
-     const entry=game.items.get(result);
-     if(entry){
-       if(entry.type==='tecnica'){
-         const price=entry.system.level==='basica'?6:entry.system.level==='avancada'?9:0;
-         if(entry.system.officio && entry.system.officio!==actor.system.office){warning('Esta técnica pertence a outro Ofício.');return;}
-         if(entry.system.level==='avancada'&&actor.items.filter(i=>i.type==='tecnica'&&i.system.level==='basica').length<2){warning('É necessário possuir duas técnicas básicas antes de comprar uma avançada.');return;}
-         if(actor.items.some(i=>i.name===entry.name&&i.type==='tecnica')){warning('Esta técnica já está na ficha.');return;}
-         if(price>actor.system.xp){warning(`XP insuficiente: ${price} XP necessários.`);return;}
-         const data=entry.toObject();delete data._id;
-         await actor.createEmbeddedDocuments('Item',[data]);
-         if(price>0)await actor.update({'system.xp':actor.system.xp-price,'system.xpSpent':actor.system.xpSpent+price});
-       }else{
-         const data=entry.toObject();delete data._id;await actor.createEmbeddedDocuments('Item',[data]);
-       }
-     }
-   }return;
+    const groups=Object.entries(COLLECTIONS).map(([key,def])=>({key,def,pack:getPlutoPack(key)})).filter(p=>p.pack);
+    if(!groups.length){warning('Compêndios indisponíveis. O Narrador precisa abrir o mundo como GM.');return;}
+    const pick=await foundry.applications.api.DialogV2.prompt({
+      window:{title:'Arquivo clandestino do Sindicato'},
+      content:`<label>Categoria <select name="pack">${groups.map(({key,def})=>`<option value="${key}">${escapeHTML(def.label)}</option>`).join('')}</select></label>`,
+      ok:{label:'Consultar',callback:(event,button,dialog)=>dialog.element.querySelector('select[name=pack]')?.value}
+    });
+    if(pick){const p=getPlutoPack(pick);if(!p)return;
+      const index=await p.getIndex();
+      const rows=Array.from(index).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+      const id=await foundry.applications.api.DialogV2.prompt({window:{title:p.title},
+       content:`<label>Registro <select name="item">${rows.map(e=>`<option value="${e._id}">${escapeHTML(e.name)}</option>`).join('')}</select></label>`,
+       ok:{label:'Adicionar à ficha',callback:(event,button,dialog)=>dialog.element.querySelector('select[name=item]')?.value}});
+      if(id){const doc=await p.getDocument(id);await this._addFromDocument(doc);}
+    }
+    return;
+  }
+  if(action==='card-use'){
+    const card=actor.items.get(button.dataset.id);if(!card)return;
+    await ChatMessage.create({speaker:ChatMessage.getSpeaker({actor}),content:`<div class="pluto-chat"><b>${escapeHTML(actor.name)}</b> apresenta a carta <b>${escapeHTML(card.name)}</b><p>${escapeHTML(card.system.effect||card.system.description)}</p><small>${escapeHTML(card.system.activation||'Ativação narrada')} · ${escapeHTML(card.system.duration||'Duração conforme carta')}</small></div>`});
+    return;
   }
   if(action==='prepare-combat'){await organizeAlternation();return;}
   if(action==='area-template'){
@@ -189,24 +249,13 @@ export class PlutoActorSheet extends HandlebarsApplicationMixin(ActorSheetV2){
    await ChatMessage.create({speaker:ChatMessage.getSpeaker({actor}),content:`<div class="pluto-chat"><b>${escapeHTML(actor.name)}</b> usa <b>${escapeHTML(item.name)}</b><p>${escapeHTML(item.system.effect||item.system.description)}</p><small>Aplicação conforme a descrição; ações e limites exclusivos continuam valendo.</small></div>`});return;
   }
  }
- async _onDrop(event){
-  if(!this.actor.isOwner)return super._onDrop(event);
-  try{
-   const data=TextEditor.getDragEventData(event);
-   if(data.type==='Item'){
-     const item=await fromUuid(data.uuid);
-     if(item&&item.documentName==='Item'){
-       await this.actor.createEmbeddedDocuments('Item',[item.toObject()]);return;
-     }
-   }
-  }catch(e){console.warn('Plutofagia drag-drop',e)}
-  return super._onDrop(event);
- }
+ async _onDrop(event){return super._onDrop(event);}
+
 }
 export class PlutoItemSheet extends HandlebarsApplicationMixin(ItemSheetV2){
  static DEFAULT_OPTIONS={classes:['plutofagia','pluto-item'],window:{title:'Registro de Arsenal e Ofício',resizable:true},position:{width:560,height:650},form:{closeOnSubmit:false,submitOnChange:false}};
  static PARTS={body:{template:'systems/plutofagia/templates/item.hbs'}};
- async _prepareContext(opts){const c=await super._prepareContext(opts);return {...c,item:this.item,sys:this.item.system,kind:this.item.type,regions:Object.entries(REGION_NAME).map(([key,label])=>({key,label,selected:this.item.system.region===key})),attrOptions:Object.entries(ATTRS).map(([key,label])=>({key,label,selected:this.item.system.attribute===key})),skillOptions:[{key:'',label:'— Sem perícia —'}].concat(Object.entries(SKILLS).map(([key,label])=>({key,label,selected:this.item.system.skill===key}))),editable:this.isEditable,isWeapon:this.item.type==='arma',isArmor:this.item.type==='protecao',isTechnique:this.item.type==='tecnica'};}
+ async _prepareContext(opts){const c=await super._prepareContext(opts);return {...c,item:this.item,sys:this.item.system,kind:this.item.type,regions:Object.entries(REGION_NAME).map(([key,label])=>({key,label,selected:this.item.system.region===key})),attrOptions:Object.entries(ATTRS).map(([key,label])=>({key,label,selected:this.item.system.attribute===key})),skillOptions:[{key:'',label:'— Sem perícia —'}].concat(Object.entries(SKILLS).map(([key,label])=>({key,label,selected:this.item.system.skill===key}))),editable:this.isEditable,isCard:this.item.type==='carta',isWeapon:this.item.type==='arma',isArmor:this.item.type==='protecao',isTechnique:this.item.type==='tecnica'};}
  async _onRender(context,opts){await super._onRender(context,opts);this.element.querySelectorAll('[data-field]').forEach(el=>el.addEventListener('change',async()=>{if(!this.item.isOwner)return;let value=el.type==='checkbox'?el.checked:el.type==='number'?Number(el.value):el.value;await this.item.update({[el.dataset.field]:value});}));}
 }
 

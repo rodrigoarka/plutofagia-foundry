@@ -2,7 +2,7 @@
   "id": "plutofagia",
   "title": "PLUTOFAGIA — O Livro do Sindicato",
   "description": "Sistema de RPG de fantasia urbana e organização comunitária: D10, PV regionais, grid em quadrados e combate por facções. Distribuído como caderno clandestino do Sindicato dos Inconvenientes.",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
@@ -37,7 +37,8 @@
       "protecao": {},
       "tecnica": {},
       "consumivel": {},
-      "equipamento": {}
+      "equipamento": {},
+      "carta": {}
     }
   },
   "grid": {
@@ -52,7 +53,7 @@
   "socket": false,
   "url": "https://github.com/rodrigoarka/plutofagia-foundry",
   "manifest": "https://raw.githubusercontent.com/rodrigoarka/plutofagia-foundry/main/system.json",
-  "download": "https://github.com/rodrigoarka/plutofagia-foundry/releases/download/v0.9.1/plutofagia.zip",
+  "download": "https://github.com/rodrigoarka/plutofagia-foundry/releases/download/v0.9.2/plutofagia.zip",
   "bugs": "https://github.com/rodrigoarka/plutofagia-foundry/issues",
   "readme": "https://github.com/rodrigoarka/plutofagia-foundry/blob/main/README.md",
   "license": "LICENSE.txt"

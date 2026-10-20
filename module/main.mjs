@@ -1,3 +1,4 @@
+import {seedPlutoCompendia,getPlutoPack} from './compendia.mjs';
 import {PlutoActorModel,PlutoCommunityModel,PlutoItemModel} from './models.mjs';
 import {PlutoActor,PlutoItem} from './actor.mjs';
 import {PlutoActorSheet,PlutoItemSheet,PlutoCommunitySheet} from './sheets.mjs';
@@ -7,13 +8,13 @@ Hooks.once('init',()=>{
  CONFIG.Actor.documentClass=PlutoActor;
  CONFIG.Item.documentClass=PlutoItem;
  CONFIG.Actor.dataModels={operario:PlutoActorModel,npc:PlutoActorModel,comunidade:PlutoCommunityModel};
- CONFIG.Item.dataModels={arma:PlutoItemModel,protecao:PlutoItemModel,tecnica:PlutoItemModel,consumivel:PlutoItemModel,equipamento:PlutoItemModel};
+ CONFIG.Item.dataModels={arma:PlutoItemModel,protecao:PlutoItemModel,tecnica:PlutoItemModel,consumivel:PlutoItemModel,equipamento:PlutoItemModel,carta:PlutoItemModel};
  CONFIG.Actor.trackableAttributes={operario:{bar:['regions.torso','resources.pr'],value:['regions.cabeca.value','movement.value','defense.value']},npc:{bar:['regions.torso','resources.pr'],value:['regions.cabeca.value','movement.value','defense.value']},comunidade:{bar:[],value:['apoio','pressao','estrutura']}};
  const sheetConfig=foundry.applications.apps.DocumentSheetConfig;
  // Em Foundry V13, preserve o receiver `DocumentSheetConfig` da API estática.
  sheetConfig.registerSheet(foundry.documents.Actor,game.system.id,PlutoActorSheet,{types:['operario','npc'],makeDefault:true,label:'Ficha do Sindicato'});
  sheetConfig.registerSheet(foundry.documents.Actor,game.system.id,PlutoCommunitySheet,{types:['comunidade'],makeDefault:true,label:'Ficha do Bairro'});
- sheetConfig.registerSheet(foundry.documents.Item,game.system.id,PlutoItemSheet,{types:['arma','protecao','tecnica','consumivel','equipamento'],makeDefault:true,label:'Ficha de Inventário'});
+ sheetConfig.registerSheet(foundry.documents.Item,game.system.id,PlutoItemSheet,{types:['arma','protecao','tecnica','consumivel','equipamento','carta'],makeDefault:true,label:'Ficha de Inventário'});
  console.info('[PLUTOFAGIA] Fichas V13 registradas: operário, NPC, comunidade e itens.');
  game.settings.register('plutofagia','catalogSeeded',{name:'Catálogo importado',hint:'Importar itens básicos apenas uma vez no mundo.',scope:'world',config:false,type:Boolean,default:false});
  game.settings.register('plutofagia','showMoveHints',{name:'Avisar deslocamento acima do máximo',hint:'Avisos opcionais sobre deslocamento de tokens em combate. Não bloqueia os movimentos.',scope:'world',config:true,type:Boolean,default:true});
@@ -25,20 +26,20 @@ Hooks.once('init',()=>{
  ]];
 });
 Hooks.once('ready',async()=>{
-  game.plutofagia={versao:'0.9.0',organizarCombate:organizeAlternation,rolarTeste:rollPool,rolarDano:rollExploding,grid:GRID};
+  game.plutofagia={versao:'0.9.2',organizarCombate:organizeAlternation,rolarTeste:rollPool,rolarDano:rollExploding,grid:GRID};
   document.addEventListener('click',chatApplyButton);
-  if(game.user.isGM&&!game.settings.get('plutofagia','catalogSeeded')){
-    try{
-      const reply=await fetch(ITEMS_PATH);
-      if(!reply.ok)throw new Error(`Falha no arquivo ${ITEMS_PATH}`);
-      const entries=await reply.json();
-      const existing=new Set(game.items.filter(i=>i.getFlag('plutofagia','catalogItem')).map(i=>i.name));
-      const fresh=entries.filter(i=>!existing.has(i.name));
-      if(fresh.length)await Item.createDocuments(fresh);
-      await game.settings.set('plutofagia','catalogSeeded',true);
-      ui.notifications.info(`O Sindicato registrou ${fresh.length} novos itens no catálogo mundial.`);
-    }catch(e){console.error('Importação do catálogo Plutofagia',e);ui.notifications.error('Não foi possível carregar o catálogo inicial. Veja o console do navegador.');}
+  // Cria quatro compêndios nativos por mundo; não apaga o catálogo mundial legado.
+  if(game.user.isGM){
+    try {
+      const summary=await seedPlutoCompendia();
+      const amount=Object.values(summary).reduce((sum,p)=>sum+p.added,0);
+      if(amount)ui.notifications.info(`O Sindicato catalogou ${amount} novos registros em quatro compêndios.`);
+    }catch(err){
+      console.error('[PLUTOFAGIA] Compêndios não carregados',err);
+      ui.notifications.error('Não foi possível preparar os compêndios. Consulte o console.');
+    }
   }
+
 });
 Hooks.on('preUpdateToken',(document,update,options,userId)=>{
   if(!game.settings?.get('plutofagia','showMoveHints'))return;

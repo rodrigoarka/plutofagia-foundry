@@ -21,7 +21,7 @@ await import('../module/main.mjs');
 assert.equal(typeof callbacks.init,'function');
 callbacks.init();
 assert.equal(registrations.length,3);
-assert.deepEqual(registrations.map(r=>r.opts.types),[['operario','npc'],['comunidade'],['arma','protecao','tecnica','consumivel','equipamento']]);
+assert.deepEqual(registrations.map(r=>r.opts.types),[['operario','npc'],['comunidade'],['arma','protecao','tecnica','consumivel','equipamento','carta']]);
 assert.ok(registrations.every(r=>r.opts.makeDefault),'As fichas devem ser padrão');
 assert.ok(CONFIG.Actor.dataModels.operario,'Modelo operário ausente');
 assert.ok(CONFIG.Actor.dataModels.comunidade,'Modelo comunidade ausente');

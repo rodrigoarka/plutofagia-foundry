@@ -80,3 +80,12 @@
 .pluto-chat small{display:block;font-size:.85em;margin-top:5px;}
 .pluto-apply-ui{display:flex;flex-wrap:wrap;align-items:center;gap:5px;}
 @media (max-width:680px){.pluto-attributes,.pluto-skills,.pluto-narrative{grid-template-columns:1fr 1fr;}.pluto-person-bar{flex-direction:column;}.pluto-masthead-right{display:none;}.pluto-combat-stats{grid-template-columns:repeat(3,1fr)}.pluto-item-row{flex-wrap:wrap}.pluto-item-row>span{min-width:140px}.pluto-sheet{padding:8px 11px;}}
+
+/* Compêndios: botões de classificação e lista local com atualização por DOM. */
+.pluto-compendia-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin:8px 0;}
+.pluto-compendia-buttons button{background:#1b1a19;color:#f5ecd6;border-left:4px solid #a3222a;text-align:left;letter-spacing:.2px;padding:7px 9px;}
+.pluto-compendia-buttons button:hover{background:#8e2429;color:#fff;}
+.pluto-drop-area{border:2px dashed #9b2929;background:rgba(153,35,35,.045);border-radius:2px;padding:9px;margin:9px 0;color:#6c3631;text-align:center;font-weight:700;}
+.pluto-empty-collection{font:italic 12px Georgia,serif;color:#70665b;padding:6px 8px;border-bottom:1px dashed #b3a794;}
+[data-pluto-collection]{display:flex;flex-direction:column;gap:4px;}
+[data-pluto-collection] .pluto-item-row{margin-bottom:1px;}

@@ -27,7 +27,7 @@ export class PlutoItemModel extends foundry.abstract.TypeDataModel {
   description:str(''),category:str(''),damage:str('1d10'),splash:str(''),
   range:int(1,99),area:int(0,99),slots:int(1,9),properties:str(''),
   skill:str(''),attribute:str(''),cost:int(0,99),difficulty:int(7,10),
-  effect:str(''),officio:str(''),level:str('basica'),
+  effect:str(''),officio:str(''),level:str('basica'),duration:str(''),activation:str(''),
   uses:resource(0,99),equipped:flag(false),quantity:int(1,999),
   region:str('torso'),armor:int(0,9),rarity:str('comum')
  };}

@@ -1,0 +1,1262 @@
+[
+  {
+    "name": "Ódio de Classe",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 no próximo ataque. Não concede outro ataque.",
+      "effect": "+1D10 no próximo ataque. Não concede outro ataque.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 1,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Café da Firma",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+2 quadrados em um deslocamento seu.",
+      "effect": "+2 quadrados em um deslocamento seu.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Ao mover",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 2,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "União Faz a Força",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 no próximo teste apoiado por outro personagem.",
+      "effect": "+1D10 no próximo teste apoiado por outro personagem.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 3,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Síndrome do Protagonista",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Repita 1 dado do teste de ataque que não mostre 10; mantenha o novo resultado.",
+      "effect": "Repita 1 dado do teste de ataque que não mostre 10; mantenha o novo resultado.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Após rolar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 4,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Feriado Surpresa",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Execute Guardar posição sem gastar ação; a proteção não acumula com outra Guarda.",
+      "effect": "Execute Guardar posição sem gastar ação; a proteção não acumula com outra Guarda.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 5,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Marmita da Vovó Orc",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Ignore uma penalidade de -1D10 por um teste.",
+      "effect": "Ignore uma penalidade de -1D10 por um teste.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 6,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Ponto Batido",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Mova até 2 quadrados sem gastar ação.",
+      "effect": "Mova até 2 quadrados sem gastar ação.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 7,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Greve Relâmpago",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Um inimigo adjacente sofre -1D10 no próximo teste; não perde ações.",
+      "effect": "Um inimigo adjacente sofre -1D10 no próximo teste; não perde ações.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 8,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Curso de Excel Avançado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 no próximo teste de Técnica.",
+      "effect": "+1D10 no próximo teste de Técnica.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 9,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Carisma de Assembleia",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 no próximo teste de Lábia.",
+      "effect": "+1D10 no próximo teste de Lábia.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 10,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Trabalho em Equipe",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Aliado a até 3 quadrados recebe +1D10 em próximo teste; não acumula com Ajudar.",
+      "effect": "Aliado a até 3 quadrados recebe +1D10 em próximo teste; não acumula com Ajudar.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 11,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Atestado Carimbado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Ignore -2 quadrados ou outro redutor de movimento em um deslocamento.",
+      "effect": "Ignore -2 quadrados ou outro redutor de movimento em um deslocamento.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Ao mover",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 12,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Troco do Busão",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Após acertar seu ataque, mova 1 quadrado sem ação.",
+      "effect": "Após acertar seu ataque, mova 1 quadrado sem ação.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Após acertar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 13,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Capacete de Obras",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Reduza em 3 o próximo dano recebido na cabeça. Usa reação defensiva.",
+      "effect": "Reduza em 3 o próximo dano recebido na cabeça. Usa reação defensiva.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Reação",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 14,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Manual Pirata",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 ao improvisar ferramenta ou dispositivo ficcional.",
+      "effect": "+1D10 ao improvisar ferramenta ou dispositivo ficcional.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 15,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Sorte do Terceirizado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1 no maior resultado de teste (máximo 10); não gera 10 natural. Não acumula com rerrolagem excedente de 6D10: escolha um efeito.",
+      "effect": "+1 no maior resultado de teste (máximo 10); não gera 10 natural. Não acumula com rerrolagem excedente de 6D10: escolha um efeito.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Após rolar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 16,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Sindicato Presente",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Remova de um aliado uma condição com duração de 1 turno.",
+      "effect": "Remova de um aliado uma condição com duração de 1 turno.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 17,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Crachá VIP",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Ignore 1 ponto de bônus de Defesa concedido por cobertura ao próximo ataque.",
+      "effect": "Ignore 1 ponto de bônus de Defesa concedido por cobertura ao próximo ataque.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Antes de atacar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 18,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Descanso Remunerado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Ao realizar seu repouso protegido permitido, recupere +2 PV em uma região, sem remover condição persistente.",
+      "effect": "Ao realizar seu repouso protegido permitido, recupere +2 PV em uma região, sem remover condição persistente.",
+      "category": "favoráveis",
+      "duration": "Até descanso",
+      "activation": "Ao repousar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 19,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Plano B Improvável",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Após errar um teste, mova 2 quadrados sem ação.",
+      "effect": "Após errar um teste, mova 2 quadrados sem ação.",
+      "category": "favoráveis",
+      "duration": "Até usar",
+      "activation": "Após falhar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 20,
+        "cardType": "favoráveis"
+      }
+    }
+  },
+  {
+    "name": "Reunião que Podia Ser E-mail",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Você não pode usar Mirar no próximo turno.",
+      "effect": "Você não pode usar Mirar no próximo turno.",
+      "category": "desfavoráveis",
+      "duration": "1 turno",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 21,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Perna em Greve",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Seu deslocamento máximo passa a 1 quadrado enquanto durar a condição.",
+      "effect": "Seu deslocamento máximo passa a 1 quadrado enquanto durar a condição.",
+      "category": "desfavoráveis",
+      "duration": "Até reparo",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 22,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Braço Terceirizado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Não pode realizar ações que exijam o braço afetado.",
+      "effect": "Não pode realizar ações que exijam o braço afetado.",
+      "category": "desfavoráveis",
+      "duration": "Até reparo",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 23,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Olho no Mercado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-1D10 no próximo ataque localizado.",
+      "effect": "-1D10 no próximo ataque localizado.",
+      "category": "desfavoráveis",
+      "duration": "Até tratamento",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 24,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Burnout Corporativo",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-1D10 em testes sociais até repouso.",
+      "effect": "-1D10 em testes sociais até repouso.",
+      "category": "desfavoráveis",
+      "duration": "Até descanso",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 25,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Cobrança Indevida",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Sua Defesa é reduzida em 1 até o início do próximo turno, mínimo 5.",
+      "effect": "Sua Defesa é reduzida em 1 até o início do próximo turno, mínimo 5.",
+      "category": "desfavoráveis",
+      "duration": "1 rodada",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 26,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Sapato Social Molhado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-2 quadrados no próximo deslocamento, mínimo 1.",
+      "effect": "-2 quadrados no próximo deslocamento, mínimo 1.",
+      "category": "desfavoráveis",
+      "duration": "1 deslocamento",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 27,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Síndrome do Estagiário",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-1D10 no próximo teste de Técnica.",
+      "effect": "-1D10 no próximo teste de Técnica.",
+      "category": "desfavoráveis",
+      "duration": "Até usar",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 28,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Wi-Fi de Masmorra",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-1D10 ao usar dispositivos conectados.",
+      "effect": "-1D10 ao usar dispositivos conectados.",
+      "category": "desfavoráveis",
+      "duration": "1 cena",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 29,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Processo Trabalhista",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Não recebe bônus positivos de Lábia.",
+      "effect": "Não recebe bônus positivos de Lábia.",
+      "category": "desfavoráveis",
+      "duration": "1 cena",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 30,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Armadura Alugada",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Proteção do tronco sofre -1, mínimo 0.",
+      "effect": "Proteção do tronco sofre -1, mínimo 0.",
+      "category": "desfavoráveis",
+      "duration": "1 combate",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 31,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Atraso no Vale-Transporte",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-2 quadrados no primeiro deslocamento do próximo turno, mínimo 1.",
+      "effect": "-2 quadrados no primeiro deslocamento do próximo turno, mínimo 1.",
+      "category": "desfavoráveis",
+      "duration": "1 turno",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 32,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Tremedeira",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-1D10 no próximo ataque à distância.",
+      "effect": "-1D10 no próximo ataque à distância.",
+      "category": "desfavoráveis",
+      "duration": "Até usar",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 33,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Medo de Feedback",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-1D10 no próximo teste apoiado ou de Articulação.",
+      "effect": "-1D10 no próximo teste apoiado ou de Articulação.",
+      "category": "desfavoráveis",
+      "duration": "Até usar",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 34,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Colega Puxa-Saco",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Próximo bônus de dado recebido vale 0; outros efeitos mantidos.",
+      "effect": "Próximo bônus de dado recebido vale 0; outros efeitos mantidos.",
+      "category": "desfavoráveis",
+      "duration": "Até usar",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 35,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Botas de Concreto Burocrático",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Máximo de 3 quadrados por ação Mover.",
+      "effect": "Máximo de 3 quadrados por ação Mover.",
+      "category": "desfavoráveis",
+      "duration": "1 rodada",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 36,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Fora de Sintonia",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-2D10 em testes de Agilidade, Técnica e ataques que exijam coordenação; nenhuma vantagem de estados dúbios permanece.",
+      "effect": "-2D10 em testes de Agilidade, Técnica e ataques que exijam coordenação; nenhuma vantagem de estados dúbios permanece.",
+      "category": "desfavoráveis",
+      "duration": "Até o fim da cena ou recuperação ficcional.",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 37,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Maldição do Contracheque",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Descarte a próxima carta favorável que receber.",
+      "effect": "Descarte a próxima carta favorável que receber.",
+      "category": "desfavoráveis",
+      "duration": "Até usar",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 38,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Lombar do Proletariado",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "-1D10 em testes de Brutalidade.",
+      "effect": "-1D10 em testes de Brutalidade.",
+      "category": "desfavoráveis",
+      "duration": "Até descanso",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 39,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Cláusula Miúda",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Na próxima técnica de Ofício: -1D10 no teste; sem teste, reduza alcance em 1 quadrado, mínimo 1.",
+      "effect": "Na próxima técnica de Ofício: -1D10 no teste; sem teste, reduza alcance em 1 quadrado, mínimo 1.",
+      "category": "desfavoráveis",
+      "duration": "Até usar",
+      "activation": "Automático",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 40,
+        "cardType": "desfavoráveis"
+      }
+    }
+  },
+  {
+    "name": "Hora Extra Não Remunerada",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Ganhe 1 ação agora (máximo 3); sua próxima ação não ofensiva na missão exige gastar 1 ação adicional. Custo fica pendente.",
+      "effect": "Ganhe 1 ação agora (máximo 3); sua próxima ação não ofensiva na missão exige gastar 1 ação adicional. Custo fica pendente.",
+      "category": "dúbias",
+      "duration": "Até quitar",
+      "activation": "Aceite antes da ação",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 41,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Café com Refrigerante",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+2 quadrados ao mover agora; -1D10 no próximo teste de ataque à distância na missão.",
+      "effect": "+2 quadrados ao mover agora; -1D10 no próximo teste de ataque à distância na missão.",
+      "category": "dúbias",
+      "duration": "Até quitar",
+      "activation": "Ao mover",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 42,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Puxadinho Arcano",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 em um teste de Técnica; depois receba Wi-Fi de Masmorra por 1 cena.",
+      "effect": "+1D10 em um teste de Técnica; depois receba Wi-Fi de Masmorra por 1 cena.",
+      "category": "dúbias",
+      "duration": "1 cena",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 43,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Discurso de Improviso",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 em Lábia agora; seu próximo teste de Técnica na missão sofre -1D10.",
+      "effect": "+1D10 em Lábia agora; seu próximo teste de Técnica na missão sofre -1D10.",
+      "category": "dúbias",
+      "duration": "Até quitar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 44,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Escudo de Porta",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Reduza 5 do próximo dano; -2 quadrados no próximo deslocamento da missão (mínimo 1).",
+      "effect": "Reduza 5 do próximo dano; -2 quadrados no próximo deslocamento da missão (mínimo 1).",
+      "category": "dúbias",
+      "duration": "Até quitar",
+      "activation": "Reação",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 45,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Fúria do Holerite",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 no próximo teste de Brutalidade; -1D10 no próximo de Lábia na missão.",
+      "effect": "+1D10 no próximo teste de Brutalidade; -1D10 no próximo de Lábia na missão.",
+      "category": "dúbias",
+      "duration": "Até quitar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 46,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Promoção Suspeita",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Descarte imediatamente 1 favorável que possua; então ganhe 1 ação agora (máximo 3; 1 ataque/turno).",
+      "effect": "Descarte imediatamente 1 favorável que possua; então ganhe 1 ação agora (máximo 3; 1 ataque/turno).",
+      "category": "dúbias",
+      "duration": "Imediato",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 47,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Atalho do Goblin",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Mova 3 quadrados extras neste deslocamento; perca todos os benefícios de cobertura até seu próximo turno.",
+      "effect": "Mova 3 quadrados extras neste deslocamento; perca todos os benefícios de cobertura até seu próximo turno.",
+      "category": "dúbias",
+      "duration": "Até próximo turno",
+      "activation": "Ao mover",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 48,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Armadura de Papelada",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Reduza 4 do próximo dano; -1D10 em Agilidade no seu próximo teste na missão.",
+      "effect": "Reduza 4 do próximo dano; -1D10 em Agilidade no seu próximo teste na missão.",
+      "category": "dúbias",
+      "duration": "Até quitar",
+      "activation": "Reação",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 49,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Motivação Tóxica",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 ao atacar agora; receba Burnout Corporativo após a cena.",
+      "effect": "+1D10 ao atacar agora; receba Burnout Corporativo após a cena.",
+      "category": "dúbias",
+      "duration": "Até descanso",
+      "activation": "Antes de atacar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 50,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Coragem de Boteco",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "1 vez na cena, +1D10 para resistir a Intimidação; enquanto durar, -1D10 em Agilidade e Técnica. Não oferece bônus ofensivo.",
+      "effect": "1 vez na cena, +1D10 para resistir a Intimidação; enquanto durar, -1D10 em Agilidade e Técnica. Não oferece bônus ofensivo.",
+      "category": "dúbias",
+      "duration": "1 cena.",
+      "activation": "Quando a condição narrativa é aplicada",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 51,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Corrida do Boleto",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Mova 4 quadrados adicionais; não pode Mirar neste turno ou no próximo.",
+      "effect": "Mova 4 quadrados adicionais; não pode Mirar neste turno ou no próximo.",
+      "category": "dúbias",
+      "duration": "Até próximo turno",
+      "activation": "Ao mover",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 52,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "O Universo Está Falando Comigo",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "1 vez na cena, +1D10 ao interpretar pistas de fenômeno mágico simbólico; -1D10 em Agilidade, Técnica e ataques. Não revela verdades automaticamente.",
+      "effect": "1 vez na cena, +1D10 ao interpretar pistas de fenômeno mágico simbólico; -1D10 em Agilidade, Técnica e ataques. Não revela verdades automaticamente.",
+      "category": "dúbias",
+      "duration": "1 cena.",
+      "activation": "Quando a condição narrativa é aplicada",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 53,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Greve de Um Homem Só",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Inimigo adjacente recebe -1D10 em seu próximo teste; seu próximo Mover tem -2 quadrados (mínimo 1).",
+      "effect": "Inimigo adjacente recebe -1D10 em seu próximo teste; seu próximo Mover tem -2 quadrados (mínimo 1).",
+      "category": "dúbias",
+      "duration": "Até quitar",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 54,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Contrato de Risco",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "+1D10 no próximo ataque; depois recebe 2 PV de dano no tronco, ignorando proteção.",
+      "effect": "+1D10 no próximo ataque; depois recebe 2 PV de dano no tronco, ignorando proteção.",
+      "category": "dúbias",
+      "duration": "Até usar",
+      "activation": "Antes de atacar",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 55,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Hack do Pirata",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Desligue uma câmera ou alarme acessível por 1 rodada; aumente em 1 a pressão/alarme da cena se houver.",
+      "effect": "Desligue uma câmera ou alarme acessível por 1 rodada; aumente em 1 a pressão/alarme da cena se houver.",
+      "category": "dúbias",
+      "duration": "Imediato",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 56,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Elogio do Chefe",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Descarte agora outra carta favorável; então ganhe +1D10 no próximo teste.",
+      "effect": "Descarte agora outra carta favorável; então ganhe +1D10 no próximo teste.",
+      "category": "dúbias",
+      "duration": "Até usar",
+      "activation": "Antes da rolagem",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 57,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Bota-Fora Revolucionário",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Empurre um alvo adjacente 2 quadrados se houver espaço; recue 1 quadrado obrigatoriamente.",
+      "effect": "Empurre um alvo adjacente 2 quadrados se houver espaço; recue 1 quadrado obrigatoriamente.",
+      "category": "dúbias",
+      "duration": "Imediato",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 58,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Milagre do Plano Básico",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Recupere 3 PV de uma região; receba Cobrança Indevida até o próximo turno.",
+      "effect": "Recupere 3 PV de uma região; receba Cobrança Indevida até o próximo turno.",
+      "category": "dúbias",
+      "duration": "1 rodada",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 59,
+        "cardType": "dúbias"
+      }
+    }
+  },
+  {
+    "name": "Manual de Crise",
+    "type": "carta",
+    "img": "icons/svg/book.svg",
+    "system": {
+      "description": "Gaste 1 ação agora para remover uma condição desfavorável temporária de 1 cena ou menos.",
+      "effect": "Gaste 1 ação agora para remover uma condição desfavorável temporária de 1 cena ou menos.",
+      "category": "dúbias",
+      "duration": "Imediato",
+      "activation": "No seu turno",
+      "quantity": 1,
+      "cost": 0
+    },
+    "flags": {
+      "plutofagia": {
+        "catalogItem": true,
+        "cardNumber": 60,
+        "cardType": "dúbias"
+      }
+    }
+  }
+]

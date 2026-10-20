@@ -12,6 +12,11 @@
   <label>Região protegida <select data-field="system.region">{{#each regions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
   <label>Absorção <input type="number" min="0" max="9" data-field="system.armor" value="{{sys.armor}}" /></label>
   <label><input type="checkbox" data-field="system.equipped" {{#if sys.equipped}}checked{{/if}} /> Vestido / equipado</label>
+  {{else if isCard}}
+  <label>Grupo <input data-field="system.category" value="{{sys.category}}" /></label>
+  <label>Ativação <input data-field="system.activation" value="{{sys.activation}}" /></label>
+  <label>Duração <input data-field="system.duration" value="{{sys.duration}}" /></label>
+  <label>Efeito <textarea data-field="system.effect">{{sys.effect}}</textarea></label>
   {{else if isTechnique}}
   <div class="pluto-split"><label>Ofício <input data-field="system.officio" value="{{sys.officio}}" /></label><label>Estágio <input data-field="system.level" value="{{sys.level}}" /></label></div>
   <div class="pluto-split"><label>Custo de ação <input type="number" min="0" max="3" data-field="system.cost" value="{{sys.cost}}" /></label><label>Dificuldade <input type="number" min="1" max="10" data-field="system.difficulty" value="{{sys.difficulty}}" /></label></div>
